@@ -22,19 +22,29 @@ Installing this module is fairly simple.
 
 Run `jspm install github:spoonx/aurelia-notification` from your project root.
 
+Either set your own styles or install Humane.js to use the default styles.
+
+Run `jspm install github:waved/humane` from your project root.
+
 ## Usage
 Import the module, and get cracking.
 
 ```javascript
-import {notification} from 'spoonx/aurelia-notification';
+import {Notification} from 'spoonx/aurelia-notification';
+// optional: use a supplied style for the notifications
+// import "wavded/humane-js/themes/libnotify.css!";
 import {inject} from 'aurelia-framework';
 
-@inject(notification)
+@inject(Notification)
 export class SomeViewModel {
 
-  constructor (Notification) {
+  constructor (notification) {
     notification.success('Record created successfully');
     notification.error('Record created successfully');
   }
 }
 ```
+
+## API
+
+You can find more documentation, including the available methods, in the `doc/` directory.
