@@ -1,21 +1,21 @@
-import humane from 'wavded/humane-js';
+import Humane from 'wavded/humane-js';
 import {inject} from 'aurelia-framework';
 import {I18N} from 'aurelia-i18n';
 import {Optional} from 'aurelia-dependency-injection';
 
-@inject(humane, new Optional(I18N))
+@inject(Humane, new Optional(I18N))
 export class Notification {
-  
+
   /**
    * Construct.
    *
-   * @param {humane} humane
+   * @param {Humane} humane
    * @param {i18N} [I18N]
    *
    * @constructor
    */
-  constructor(_humane, i18n) {
-    this._humane = _humane;
+  constructor(humane, i18n) {
+    this._humane = humane;
     this.i18n   = i18n;
   }
 
@@ -56,7 +56,7 @@ export class Notification {
    *
    */
   success(message, options = {}) {
-    this.log(message, Object.assign(options, {addnCls: 'success'});
+    this.log(message, Object.assign(options, {addnCls: 'success'}));
   }
 
   /**
@@ -67,7 +67,7 @@ export class Notification {
    * @param {{}} [options] passed on to humane.
    *
    */
-  error(message, options= {}) {
-    this.log(message, Object.assign(options, {addnCls: 'error'});
+  error(message, options = {}) {
+    this.log(message, Object.assign(options, {addnCls: 'error'}));
   }
 }
