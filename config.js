@@ -15,7 +15,7 @@ System.config({
 
   map: {
     "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.0.7",
-    "aurelia-i18n": "npm:aurelia-i18n@0.4.1",
+    "aurelia-i18n": "npm:aurelia-i18n@0.4.4",
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "core-js": "npm:core-js@1.2.6",
@@ -62,14 +62,16 @@ System.config({
       "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.0.2",
       "core-js": "npm:core-js@1.2.6"
     },
-    "npm:aurelia-i18n@0.4.1": {
+    "npm:aurelia-i18n@0.4.4": {
       "Intl.js": "github:andyearnshaw/Intl.js@0.1.4",
+      "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.0.3",
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1",
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0-beta.1",
       "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0-beta.1.0.1",
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.0.1",
       "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.0.2",
-      "i18next": "github:i18next/i18next@1.11.1"
+      "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-beta.1.0.3",
+      "i18next": "github:i18next/i18next@1.11.2"
     },
     "npm:aurelia-loader-default@1.0.0-beta.1.0.1": {
       "aurelia-loader": "npm:aurelia-loader@1.0.0-beta.1",
@@ -86,6 +88,17 @@ System.config({
     },
     "npm:aurelia-task-queue@1.0.0-beta.1.0.1": {
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.0.1"
+    },
+    "npm:aurelia-templating-resources@1.0.0-beta.1.0.3": {
+      "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.0.3",
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1",
+      "aurelia-loader": "npm:aurelia-loader@1.0.0-beta.1",
+      "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.1",
+      "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.0.1",
+      "aurelia-path": "npm:aurelia-path@1.0.0-beta.1",
+      "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-beta.1.0.1",
+      "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.0.2",
+      "core-js": "npm:core-js@1.2.6"
     },
     "npm:aurelia-templating@1.0.0-beta.1.0.2": {
       "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.0.3",

@@ -45,6 +45,7 @@
     },
     "dependencies": {
       "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1.0.7",
+      "aurelia-i18n": "npm:aurelia-i18n@^0.4.4",
       "wavded/humane-js": "github:wavded/humane-js@^3.2.2"
     },
     "devDependencies": {
