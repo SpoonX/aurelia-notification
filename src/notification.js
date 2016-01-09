@@ -2,9 +2,8 @@ import {Config} from './config';
 import Humane from 'wavded/humane-js';
 import {inject} from 'aurelia-framework';
 import {I18N} from 'aurelia-i18n';
-import {Optional} from 'aurelia-dependency-injection';
 
-@inject(Config, Humane, new Optional(I18N))
+@inject(Config, Humane, I18N)
 export class Notification {
 
   /**
@@ -41,7 +40,7 @@ export class Notification {
    *
    */
   log(message, options) {
-    if (this.translate && this.i18n && this.i18n.i18next.isInitialized()) {
+    if (this.translate && this.i18n.i18next.isInitialized()) {
       if (message instanceof Array) {
         message = message.map(item=>this.i18n.tr(item));
       } else {
