@@ -18,28 +18,39 @@ var _aureliaFramework = require('aurelia-framework');
 
 var _aureliaI18n = require('aurelia-i18n');
 
+var _aureliaDependencyInjection = require('aurelia-dependency-injection');
+
 var Notification = (function () {
-  function Notification(humane, i18n) {
+  function Notification(_humane, i18n) {
     _classCallCheck(this, _Notification);
 
-    this.humane = humane;
+    this.humane = _humane;
     this.i18n = i18n;
   }
 
   _createClass(Notification, [{
+    key: 'log',
+    value: function log(message, options) {
+      if (this.i18n && this.i18n.i18next.isInitialized()) {
+        message = this.i18n.tr(message);
+      }
+
+      this.humane.log(message, options);
+    }
+  }, {
     key: 'success',
     value: function success(message) {
-      this.humane.log(this.i18n.tr(message), { addnCls: 'success' });
+      this.log(message, { addnCls: 'success' });
     }
   }, {
     key: 'error',
     value: function error(message) {
-      this.humane.log(this.i18n.tr(message), { addnCls: 'error' });
+      this.log(message, { addnCls: 'error' });
     }
   }]);
 
   var _Notification = Notification;
-  Notification = (0, _aureliaFramework.inject)(_wavdedHumaneJs2['default'], _aureliaI18n.I18N)(Notification) || Notification;
+  Notification = (0, _aureliaFramework.inject)(_wavdedHumaneJs2['default'], new _aureliaDependencyInjection.Optional(_aureliaI18n.I18N))(Notification) || Notification;
   return Notification;
 })();
 

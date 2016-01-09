@@ -1,7 +1,7 @@
-System.register(['wavded/humane-js', 'aurelia-framework', 'aurelia-i18n'], function (_export) {
+System.register(['wavded/humane-js', 'aurelia-framework', 'aurelia-i18n', 'aurelia-dependency-injection'], function (_export) {
   'use strict';
 
-  var humane, inject, I18N, Notification;
+  var humane, inject, I18N, Optional, Notification;
 
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -14,30 +14,41 @@ System.register(['wavded/humane-js', 'aurelia-framework', 'aurelia-i18n'], funct
       inject = _aureliaFramework.inject;
     }, function (_aureliaI18n) {
       I18N = _aureliaI18n.I18N;
+    }, function (_aureliaDependencyInjection) {
+      Optional = _aureliaDependencyInjection.Optional;
     }],
     execute: function () {
       Notification = (function () {
-        function Notification(humane, i18n) {
+        function Notification(_humane, i18n) {
           _classCallCheck(this, _Notification);
 
-          this.humane = humane;
+          this.humane = _humane;
           this.i18n = i18n;
         }
 
         _createClass(Notification, [{
+          key: 'log',
+          value: function log(message, options) {
+            if (this.i18n && this.i18n.i18next.isInitialized()) {
+              message = this.i18n.tr(message);
+            }
+
+            this.humane.log(message, options);
+          }
+        }, {
           key: 'success',
           value: function success(message) {
-            this.humane.log(this.i18n.tr(message), { addnCls: 'success' });
+            this.log(message, { addnCls: 'success' });
           }
         }, {
           key: 'error',
           value: function error(message) {
-            this.humane.log(this.i18n.tr(message), { addnCls: 'error' });
+            this.log(message, { addnCls: 'error' });
           }
         }]);
 
         var _Notification = Notification;
-        Notification = inject(humane, I18N)(Notification) || Notification;
+        Notification = inject(humane, new Optional(I18N))(Notification) || Notification;
         return Notification;
       })();
 
