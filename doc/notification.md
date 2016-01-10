@@ -8,16 +8,17 @@ import {Notification} from 'spoonx/aurelia-notification';
 ---------
 
 .configure([config])
+------
 
 Set a new configuration based on current configuration. The same options as in the plugin configuration are available. The default configuration for this plugin is
 ```javascript
 {
   translate: true,      // translate messages
-  defaults: {		    // defaults for all notificatons
+  defaults: {		        // defaults for all notificatons
     baseCls: 'humane'   // base css class: 'humane'
   },       
   notifications: {      // default methods definitions
-    note: '',		    // method name and the additional css class
+    note: '',		        // method name and the additional css class
     success: 'success', 
     error: 'error',
     info: 'info'
@@ -26,11 +27,10 @@ Set a new configuration based on current configuration. The same options as in t
 ```
 The notifications object accepts `methodName:'addnClsName'` or `methodName:optionsObject`. For the available defaults/options see [humane-js](http://wavded.github.io/humane-js/).
 
-
 ### Parameters
 
 | Parameter  | Type         | Description                                      |
-| ---------- | ------------ | ----------------------------------------------   |
+| ---------- | ------------ | ------------------------------------------------ |
 | config     | object       | New config based on the current config           |
 
 ### Returns
@@ -57,7 +57,7 @@ Set the container for the notifications.
 ### Parameters
 
 | Parameter  | Type         | Description                                      |
-| ---------- | ------------ | ----------------------------------------------   |
+| ---------- | ------------ | ------------------------------------------------ |
 | message    | [DOM.node]   | The container for the notifications.             |
 
 
@@ -71,18 +71,18 @@ this.setContainer($('.content'));
 .log(message[, options[, defaults]])
 ------
 
-Notify using humane.log. The message gets translated using i18n if available.
+Notify using humane.log. Depending on options and defaults, the message gets translated using i18n if available.
 
 ### Parameters
 
 | Parameter  | Type         | Description                                      |
-| ---------- | ------------ | ----------------------------------------------   |
+| ---------- | ------------ | ------------------------------------------------ |
 | message    | string/array | The message as string or array of strings        |
 | options    | object       | Options for this particular notification         |
 | defaults   | object       | Defaults for this type of notifications          |
 
 ### Returns
-Promise.resolve when finshed
+Promise.resolve when finished
 
 ### Examples
 ```javascript
@@ -93,13 +93,15 @@ this.notification.log('Color will change when finished')
 ---------
 
 .note(message[, options])
+------
 .success(message[, options])
+------
 .error(message[, options)
+------
 .info(message[, options])
 ------
 
-Shortcuts for .log with addnCls 'note', success', 'error' or 'info' automatically
-added to the options.
+As per the default configuration, method shortcuts for .log with addnCls defaulting to '', success', 'error' or 'info' resp. to the addnCls set in the plugin configuration.
 
 ### Parameters
 
@@ -109,7 +111,7 @@ added to the options.
 | options   | object          | Additional options for humane.js               |
 
 ### Returns
-Promise.resolve when finshed
+Promise.resolve when finished
 
 ### Examples
 ```javascript
@@ -148,10 +150,10 @@ mylog('This is a translated custom alert')
 .remove()
 ------
 
-Force remove notification
+Force remove the current notification
 
 ### Returns
-Promise.resolve when finshed
+Promise.resolve when finished
 
 ### Examples
 ```javascript
