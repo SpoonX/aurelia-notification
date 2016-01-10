@@ -7,17 +7,79 @@ import {Notification} from 'spoonx/aurelia-notification';
 
 ---------
 
-.log(message[, options|callback[, callback]])
+.configure([config])
+
+Set a new configuration based on current configuration. The same options as in the plugin configuration are available. The default configuration for this plugin is
+```javascript
+{
+  translate: true,      // translate messages
+  defaults: {		    // defaults for all notificatons
+    baseCls: 'humane'   // base css class: 'humane'
+  },       
+  notifications: {      // default methods definitions
+    note: '',		    // method name and the additional css class
+    success: 'success', 
+    error: 'error',
+    info: 'info'
+  }
+}
+```
+The notifications object accepts `methodName:'addnClsName'` or `methodName:optionsObject`. For the available defaults/options see [humane-js](http://wavded.github.io/humane-js/).
+
+
+### Parameters
+
+| Parameter  | Type         | Description                                      |
+| ---------- | ------------ | ----------------------------------------------   |
+| config     | object       | New config based on the current config           |
+
+### Returns
+Configuration object
+
+### Examples
+```javascript
+this.notification.configure(
+  notifications: {
+    success: 'smallSuccess',
+    largeError: {addnCls:'largeError'}
+  }
+);
+this.notification.largeError('Biggy');
+```
+
+---------
+
+.setContainer([container = document.body])
+------
+
+Set the container for the notifications.
+
+### Parameters
+
+| Parameter  | Type         | Description                                      |
+| ---------- | ------------ | ----------------------------------------------   |
+| message    | [DOM.node]   | The container for the notifications.             |
+
+
+### Examples
+```javascript
+this.setContainer($('.content'));
+```
+
+---------
+
+.log(message[, options[, defaults]])
 ------
 
 Notify using humane.log. The message gets translated using i18n if available.
 
 ### Parameters
 
-| Parameter | Type            | Description                                    |
-| --------- | --------------- | ---------------------------------------------- |
-| message   | string/array    | The message as string or array of strings      |
-| options   | object          | Additional options for humane.js               |
+| Parameter  | Type         | Description                                      |
+| ---------- | ------------ | ----------------------------------------------   |
+| message    | string/array | The message as string or array of strings        |
+| options    | object       | Options for this particular notification         |
+| defaults   | object       | Defaults for this type of notifications          |
 
 ### Returns
 Promise.resolve when finshed
@@ -30,12 +92,13 @@ this.notification.log('Color will change when finished')
 
 ---------
 
+.note(message[, options])
 .success(message[, options])
 .error(message[, options)
 .info(message[, options])
 ------
 
-Shortcuts for .log with addnCls 'success', 'error' or 'info' automatically
+Shortcuts for .log with addnCls 'note', success', 'error' or 'info' automatically
 added to the options.
 
 ### Parameters
@@ -61,13 +124,13 @@ then(()=>this.notification.info('Oh, you are!'));
 .spawn([defaults])
 ------
 
-Makes a shortcut .log with defaults.
+Sets a shortcut for .log with defaults.
 
 ### Parameters
 
 | Parameter | Type            | Description                                    |
 | --------- | --------------- | ---------------------------------------------- |
-| defaults   | object          | Defaults options for humane.js                 |
+| defaults  | object          | Defaults options for humane.js                 |
 
 ### Returns
 A .log function with defaults applied.
@@ -82,7 +145,7 @@ mylog('This is a translated custom alert')
 
 ---------
 
-.remove([callback])
+.remove()
 ------
 
 Force remove notification

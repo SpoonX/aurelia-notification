@@ -1,7 +1,5 @@
 # aurelia-notification
 
-*Note: 0.1.0 - Breaking change - the default success and error css classes have changed to humane-success and humane-error*
-
 [![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.io)
 [![Join the chat at https://gitter.im/aurelia/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/aurelia/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -24,13 +22,13 @@ Installing this module is fairly simple.
 
 Run `jspm install github:spoonx/aurelia-notification` from your project root.
 
-Either set your own styles or install humane.js with `jspm install github:waved/humane-js` to install some default styles to choose from.
+Either set your own styles or install humane.js with `jspm install github:waved/humane-js` to have some default styles to choose from.
 
 ## Usage
 
 ### Configuring the plugin
 
-This module comes with an optional method to configure the plugin. You can call it upon registering the plugin.
+This module comes with an optional configure method to change the some defaults. You can call it upon registering the plugin.
 
 Make sure your project uses a `main.js` file to initialize aurelia. In your configure function, add the following:
 
@@ -39,8 +37,10 @@ aurelia.use
   /* Your other plugins and init code */
   .plugin('spoonx/aurelia-notification', config => {
     config.configure({
-    	translate: true, 			      // translate with i18n. default: true
-    	baseCls: 'humane-libnotify' // base class for humane-js. default: 'humane'
+    	notifications: {
+        'success': 'humane-libnotify-success',
+        'error': 'humane-libnotify-error',
+        'info': 'humane-libnotify-info'
     });
   });
 ```
@@ -51,9 +51,10 @@ Import the module, and get cracking.
 ```javascript
 import {inject} from 'aurelia-framework';
 import {Notification} from 'spoonx/aurelia-notification';
-/* optional: use one of the humane-js styles for the notifications. For the
- * notifications to display correctly also set the corresponding base class in
- * the plugin configuration eg {baseCls: 'humane-libnotify'}.
+/* optional: 
+ * import a css file to use one of the humane-js styles for the notifications.
+ * For the four default notification types to display correctly also set the
+ * corresponding classes in the plugin configuration (see example above).
  */
 // import "wavded/humane-js/themes/libnotify.css!";
 
@@ -61,6 +62,7 @@ import {Notification} from 'spoonx/aurelia-notification';
 export class SomeViewModel {
 
   constructor (notification) {
+    notification.note('Plain');
     notification.success('Record created successfully');
     notification.error('Record creation failed');    
     notification.info('New message');

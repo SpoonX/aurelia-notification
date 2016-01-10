@@ -1,12 +1,24 @@
 export class Config {
-  configure(incomingConfig) {
-    Object.assign(this.current, incomingConfig);
+  configure(config = {}, defaults = this.defaults) {
+    Object.assign(this.current, defaults, config);
+    Object.assign(this.current.notifications, defaults.notifications, config.notifications);
+    Object.assign(this.current.defaults, defaults.defaults, config.defaults);
+    return this.current;
   }
 
   constructor() {
-    this.current = {
+    this.defaults = {
       translate: true,
-      baseCls: 'humane'
+      defaults: {
+        baseCls: 'humane'
+      },
+      notifications: {
+        note: '',
+        success: 'success',
+        error: 'error',
+        info: 'info'
+      }
     };
+    this.current = this.defaults;
   }
 }
