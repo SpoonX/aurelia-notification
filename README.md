@@ -3,9 +3,7 @@
 [![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.io)
 [![Join the chat at https://gitter.im/aurelia/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/aurelia/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-This library is an unofficial plugin for the [Aurelia](http://www.aurelia.io/) platform and contains a simple notification service using [humane.js](http://wavded.github.io/humane-js/). 
-
-While all options of humane-js are available (instead of adding callbacks, promises are returned where applicable though), basic usage doesn't require more than adding your own css or selecting one of humane-js css files as specified below.
+This library is an unofficial plugin for the [Aurelia](http://www.aurelia.io/) platform and contains a simple but fully configurable notification service using [humane.js](http://wavded.github.io/humane-js/). While all options of humane.js are available (instead of adding callbacks, promises are returned where applicable though), basic usage doesn't require more than adding your own css or selecting one of humane.js css files as specified below.
 
 **Note:** If [aurelia i18n](https://github.com/aurelia/i18n) is installed and configured, all notifications get automatically translated. You can turn off translations, either generally in the optional plugin configuration, or for individual notifications.
 
@@ -54,7 +52,7 @@ Import the module, and get cracking.
 import {inject} from 'aurelia-framework';
 import {Notification} from 'spoonx/aurelia-notification';
 /* optional: 
- * import a css file to use one of the humane-js styles for the notifications.
+ * import a css file to use one of the humane.js styles for the notifications.
  * For the four default notification types to display correctly also set the
  * corresponding classes in the plugin configuration (see example above).
  */

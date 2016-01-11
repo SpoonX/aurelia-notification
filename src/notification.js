@@ -22,12 +22,13 @@ export class Notification {
       .define('__humane', humane)
       .define('__i18n', i18n);
 
-    // ensure humane.container is document.body after aurelia.start
+    // set baseCls and ensure humane.container is document.body after aurelia.start
+    this.setBaseCls();
     this.setContainer();
 
     // add configured default methods
-    for (let key in config.current.notifications) {
-      this[key] = this.spawn(config.current.notifications[key]);
+    for (let key in config.notifications) {
+      this[key] = this.spawn(config.notifications[key]);
     }
   }
 
@@ -52,40 +53,57 @@ export class Notification {
   }
 
   /**
-   * Set a new configuration based on current configuration
+   * Set a new configuration based on configuration
    *
-   * @param {{}}  [config] the custom config object.
+   * @param {{}}  [incomming] the custom config object.
    *
    *
    */
   @readonly()
-  configure(config) {
-    this.__config.configure(config, this.__config.current);
+  configure(incomming) {
+    this.__config.configure(incomming, this.__config);
 
-    this.setContainer(this.__config.current.container);
+    this.setBaseCls(incomming.defaults.baseCls);
+    this.setContainer(this.__config.container);
 
-    for (let key in this.__config.current.notifications) {
-      this[key] = this.spawn(this.__config.current.notifications[key]);
+    for (let key in this.__config.notifications) {
+      this[key] = this.spawn(this.__config.notifications[key]);
     }
 
-    return this.__config.current;
+    return this.__config;
   }
 
   /**
-   * Set the container for the notification
+   * Set the container for the notifications
    *
-   * @param {[DOM.node]}  [container] for the notification (default=doc.body)
+   * @param {[DOM.node]}  [container] for the notifications (default=doc.body)
    *
+   * @return {DOM.node}  [container]
    *
    */
   @readonly()
   setContainer(container = document.body) {
     this.__humane.container = container;
     this.__humane.container.appendChild(this.__humane.el);
+    return this.__humane.container;
   }
 
 
-    /**
+  /**
+   * Set the base css class for the notifications
+   *
+   * @param {[string]}  [base class] for the notifications (default=__config.defaults.baseCls)
+   *
+   * @return {string}  [base class]
+   *
+   */
+  @readonly()
+  setBaseCls(baseCls = this.__config.defaults.baseCls) {
+    this.__humane.baseCls = baseCls ? baseCls : this.__humane.baseCls;
+    return this.__humane.baseCls;
+  }
+
+  /**
    * Check if translate is on with given options
    *
    * @param {[{}]}  [options] for a particular notification.
@@ -96,7 +114,7 @@ export class Notification {
    */
   @readonly()
   translate(options, defaults) {
-    let joined = Object.assign({}, this.__config.current, defaults, options);
+    let joined = Object.assign({}, this.__config, defaults, options);
     return this.__i18n.i18next.isInitialized() && joined.translate;
   }
 

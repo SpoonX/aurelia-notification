@@ -14,18 +14,16 @@ Set a new configuration based on current configuration. The same options as in t
 ```javascript
 {
   translate: true,      // translate messages
-  defaults: {		        // defaults for all notificatons
-    baseCls: 'humane'   // base css class: 'humane'
-  },       
+  defaults: {},	        // defaults for all notificatons are humane.js defaults
   notifications: {      // default methods definitions
-    note: '',		        // method name and the additional css class
-    success: 'success', 
-    error: 'error',
-    info: 'info'
+    note: {},		        // method name and their defaults
+    success: {addnCls: 'success'},
+    error: {addnCls: 'error'},
+    info: {addnCls: 'info'}
   }
 }
 ```
-The notifications object accepts `methodName:'addnClsName'` or `methodName:optionsObject`. For the available defaults/options see [humane-js](http://wavded.github.io/humane-js/).
+The notifications object accepts `methodName:'addnClsName'` or `methodName:optionsObject`. defaults.baseCls sets the base css class for humane.js notifications. The default of humane.js is {baseCls: 'humane'}. For the available defaults/options see [humane.js](http://wavded.github.io/humane-js/).
 
 ### Parameters
 
@@ -34,17 +32,38 @@ The notifications object accepts `methodName:'addnClsName'` or `methodName:optio
 | config     | object       | New config based on the current config           |
 
 ### Returns
-Configuration object
+The configuration object
 
 ### Examples
 ```javascript
 this.notification.configure(
   notifications: {
-    success: 'smallSuccess',
+    success: 'smallSuccess',   // converts to {addnCls: 'smallSuccess'}
     largeError: {addnCls:'largeError'}
   }
 );
 this.notification.largeError('Biggy');
+```
+
+---------
+
+.setBaseClass([baseCls = default.baseCls])
+------
+
+Set the base css class for the notifications.
+
+### Parameters
+
+| Parameter  | Type         | Description                                      |
+| ---------- | ------------ | ------------------------------------------------ |
+| message    | string       | The base css class for the notifications.        |
+
+### Returns
+The new baseCls
+
+### Examples
+```javascript
+this.setBaseClass('humane-libnotify');
 ```
 
 ---------
@@ -58,8 +77,10 @@ Set the container for the notifications.
 
 | Parameter  | Type         | Description                                      |
 | ---------- | ------------ | ------------------------------------------------ |
-| message    | [DOM.node]   | The container for the notifications.             |
+| message    | DOM.node     | The container for the notifications.             |
 
+### Returns
+The new container
 
 ### Examples
 ```javascript
@@ -130,12 +151,12 @@ Sets a shortcut for .log with defaults.
 
 ### Parameters
 
-| Parameter | Type            | Description                                    |
-| --------- | --------------- | ---------------------------------------------- |
-| defaults  | object          | Defaults options for humane.js                 |
+| Parameter | Type            | Description                                     |
+| --------- | --------------- | ----------------------------------------------- |
+| defaults  | object          | Default options for the returned .log function  |
 
 ### Returns
-A .log function with defaults applied.
+A .log(message[, options[, defaults]]) function with defaults applied.
 
 ### Examples
 ```javascript

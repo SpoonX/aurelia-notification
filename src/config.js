@@ -1,24 +1,26 @@
 export class Config {
-  configure(config = {}, defaults = this.defaults) {
-    Object.assign(this.current, defaults, config);
-    Object.assign(this.current.notifications, defaults.notifications, config.notifications);
-    Object.assign(this.current.defaults, defaults.defaults, config.defaults);
-    return this.current;
+  // defaults
+  translate = true
+  defaults = {}
+  notifications = {
+    note: {},
+    success: {addnCls: 'success'},
+    error: {addnCls: 'error'},
+    info: {addnCls: 'info'}
   }
 
-  constructor() {
-    this.defaults = {
-      translate: true,
-      defaults: {
-        baseCls: 'humane'
-      },
-      notifications: {
-        note: '',
-        success: 'success',
-        error: 'error',
-        info: 'info'
+  configure(incomming = {}, base = this) {
+    this.translate = 'translate' in incomming ? incomming.translate : base.translate;
+
+    this.defaults = Object.assign({}, base.defaults, incomming.defaults);
+
+    if (typeof incomming.notifications === 'object') {
+      for (let key in incomming.notifications) {
+        incomming.notifications[key] = (typeof incomming.notifications[key] === 'object') ? incomming.notifications[key] : {addnCls: incomming.notifications[key]};
+        this.notifications[key] = Object.assign({}, base.notifications[key], incomming.notifications[key]);
       }
-    };
-    this.current = this.defaults;
+    }
+
+    return this;
   }
 }
