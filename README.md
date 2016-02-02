@@ -22,7 +22,7 @@ Installing this module is fairly simple.
 
 Run `jspm install github:spoonx/aurelia-notification` from your project root.
 
-Either set your own styles or install humane.js with `jspm install github:waved/humane-js` to have some default styles to choose from.
+Either set your own styles or install humane.js with `jspm install github:wavded/humane-js` to have some default styles to choose from.
 
 ## Usage
 
