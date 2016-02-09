@@ -1,6 +1,6 @@
 {
   "name": "aurelia-notification",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple notification service utilizing humane.js.",
   "keywords": [
     "aurelia",
