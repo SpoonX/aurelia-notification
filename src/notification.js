@@ -3,6 +3,7 @@ import Humane from 'wavded/humane-js';
 import {inject} from 'aurelia-dependency-injection';
 import {I18N} from 'aurelia-i18n';
 import {readonly} from 'javascript-decorators';
+import {DOM} from 'aurelia-pal';
 
 @inject(Config, Humane, I18N)
 export class Notification {
@@ -34,9 +35,9 @@ export class Notification {
     this.setContainer();
     let aureliaComposedListener = () => {
       this.setContainer();
-      document.removeEventListener('aurelia-composed', aureliaComposedListener);
+      DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
     };
-    document.addEventListener('aurelia-composed', aureliaComposedListener);
+    DOM.addEventListener('aurelia-composed', aureliaComposedListener);
   }
 
   /**
@@ -83,15 +84,15 @@ export class Notification {
   /**
    * Set the container for the notifications
    *
-   * @param {[DOM.node]}  [container] for the notifications (default=doc.body)
+   * @param {[DOM.node]}  [container] for the notifications
    *
    * @return {DOM.node}  [container]
    *
    */
   @readonly()
-  setContainer(container = document.body) {
-    this.__humane.container = container;
-    this.__humane.container.appendChild(this.__humane.el);
+  setContainer(container) {
+    DOM.appendNode(this.__humane.el, container); // if container null or undefined,  appends to document.body
+    this.__humane.container = this.__humane.el.parentNode;
     return this.__humane.container;
   }
 
