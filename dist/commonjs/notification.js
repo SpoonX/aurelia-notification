@@ -24,16 +24,24 @@ var _javascriptDecorators = require('javascript-decorators');
 
 var Notification = (function () {
   function Notification(config, humane, i18n) {
+    var _this = this;
+
     _classCallCheck(this, _Notification);
 
     this.define('__config', config).define('__humane', humane).define('__i18n', i18n);
 
     this.setBaseCls();
-    this.setContainer();
 
     for (var key in config.notifications) {
       this[key] = this.spawn(config.notifications[key]);
     }
+
+    this.setContainer();
+    var aureliaComposedListener = function aureliaComposedListener() {
+      _this.setContainer();
+      document.removeEventListener('aurelia-composed', aureliaComposedListener);
+    };
+    document.addEventListener('aurelia-composed', aureliaComposedListener);
   }
 
   _createDecoratedClass(Notification, [{
@@ -93,14 +101,14 @@ var Notification = (function () {
     key: 'log',
     decorators: [(0, _javascriptDecorators.readonly)()],
     value: function log(message, options) {
-      var _this = this;
+      var _this2 = this;
 
       var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];
 
       if (this.translate()) {
         if (message instanceof Array) {
           message = message.map(function (item) {
-            return _this.i18n.tr(item);
+            return _this2.i18n.tr(item);
           });
         } else {
           message = this.__i18n.tr(message);
@@ -108,30 +116,30 @@ var Notification = (function () {
       }
 
       return new Promise(function (resolve, reject) {
-        _this.__humane.log(message, options, resolve, defaults);
+        _this2.__humane.log(message, options, resolve, defaults);
       });
     }
   }, {
     key: 'spawn',
     decorators: [(0, _javascriptDecorators.readonly)()],
     value: function spawn(addnDefaults) {
-      var _this2 = this;
+      var _this3 = this;
 
       addnDefaults = typeof addnDefaults === 'string' ? { 'addnCls': addnDefaults } : addnDefaults;
       var defaults = Object.assign({}, this.__config.defaults, addnDefaults);
 
       return function (message, options) {
-        return _this2.log(message, options, defaults);
+        return _this3.log(message, options, defaults);
       };
     }
   }, {
     key: 'remove',
     decorators: [(0, _javascriptDecorators.readonly)()],
     value: function remove() {
-      var _this3 = this;
+      var _this4 = this;
 
       return new Promise(function (resolve, reject) {
-        _this3.__humane.remove(resolve);
+        _this4.__humane.remove(resolve);
       });
     }
   }]);
