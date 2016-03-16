@@ -22,14 +22,21 @@ export class Notification {
       .define('__humane', humane)
       .define('__i18n', i18n);
 
-    // set baseCls and ensure humane.container is document.body after aurelia.start
+    // set baseCls
     this.setBaseCls();
-    this.setContainer();
 
     // add configured default methods
     for (let key in config.notifications) {
       this[key] = this.spawn(config.notifications[key]);
     }
+
+    // ensure humane.container is document.body after 'aurelia-composed'
+    this.setContainer();
+    let aureliaComposedListener = () => {
+      this.setContainer();
+      document.removeEventListener('aurelia-composed', aureliaComposedListener);
+    };
+    document.addEventListener('aurelia-composed', aureliaComposedListener);
   }
 
   /**
@@ -87,7 +94,6 @@ export class Notification {
     this.__humane.container.appendChild(this.__humane.el);
     return this.__humane.container;
   }
-
 
   /**
    * Set the base css class for the notifications
