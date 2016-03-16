@@ -41,6 +41,7 @@ aurelia.use
         'success': 'humane-libnotify-success',
         'error': 'humane-libnotify-error',
         'info': 'humane-libnotify-info'
+      }
     });
   });
 ```
