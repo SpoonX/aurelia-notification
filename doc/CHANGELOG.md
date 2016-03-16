@@ -1,3 +1,11 @@
+### 0.0.5 (2016-03-16)
+
+
+#### Bug Fixes
+
+* **notification:** attach to body using 'aurelia-composed' event ([8fc71e0e](https://github.com/SpoonX/aurelia-notification/commit/8fc71e0ebd4e67263dc1777bcab6f80948d700db))
+
+
 <a name"0.0.4"></a>
 ### 0.0.4 (2016-03-02)
 
