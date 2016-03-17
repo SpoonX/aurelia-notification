@@ -18,6 +18,7 @@ This library is used directly by applications only.
 This library can be used in the **browser** only.
 
 ## Installation
+
 Installing this module is fairly simple.
 
 Run `jspm install github:spoonx/aurelia-notification` from your project root.
@@ -37,7 +38,7 @@ aurelia.use
   /* Your other plugins and init code */
   .plugin('spoonx/aurelia-notification', config => {
     config.configure({
-    	notifications: {
+      notifications: {
         'success': 'humane-libnotify-success',
         'error': 'humane-libnotify-error',
         'info': 'humane-libnotify-info'
@@ -47,12 +48,13 @@ aurelia.use
 ```
 
 ### Notification
+
 Import the module, and get cracking.
 
 ```javascript
 import {inject} from 'aurelia-framework';
 import {Notification} from 'spoonx/aurelia-notification';
-/* optional: 
+/* optional:
  * import a css file to use one of the humane.js styles for the notifications.
  * For the four default notification types to display correctly also set the
  * corresponding classes in the plugin configuration (see example above).
