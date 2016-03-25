@@ -1,3 +1,12 @@
+<a name"0.0.6"></a>
+### 0.0.6 (2016-03-25)
+
+
+#### Features
+
+* **project:** typescript support ([bf5828a0](https://github.com/SpoonX/aurelia-notification/commit/bf5828a0))
+
+
 ### 0.0.5 (2016-03-16)
 
 
