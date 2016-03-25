@@ -1,12 +1,13 @@
-export class Config {
-  // defaults
-  translate = true
-  defaults = {}
-  notifications = {
-    note: {},
-    success: {addnCls: 'success'},
-    error: {addnCls: 'error'},
-    info: {addnCls: 'info'}
+export let Config = class Config {
+  constructor() {
+    this.translate = true;
+    this.defaults = {};
+    this.notifications = {
+      note: {},
+      success: { addnCls: 'success' },
+      error: { addnCls: 'error' },
+      info: { addnCls: 'info' }
+    };
   }
 
   configure(incomming = {}, base = this) {
@@ -16,11 +17,11 @@ export class Config {
 
     if (typeof incomming.notifications === 'object') {
       for (let key in incomming.notifications) {
-        incomming.notifications[key] = (typeof incomming.notifications[key] === 'object') ? incomming.notifications[key] : {addnCls: incomming.notifications[key]};
+        incomming.notifications[key] = typeof incomming.notifications[key] === 'object' ? incomming.notifications[key] : { addnCls: incomming.notifications[key] };
         this.notifications[key] = Object.assign({}, base.notifications[key], incomming.notifications[key]);
       }
     }
 
     return this;
   }
-}
+};

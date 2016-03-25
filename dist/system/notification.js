@@ -1,17 +1,48 @@
-System.register(['./config', 'wavded/humane-js', 'aurelia-dependency-injection', 'aurelia-i18n', 'javascript-decorators'], function (_export) {
-  'use strict';
+'use strict';
 
-  var Config, Humane, inject, I18N, readonly, Notification;
+System.register(['./config', 'wavded/humane-js', 'aurelia-dependency-injection', 'aurelia-i18n', 'javascript-decorators'], function (_export, _context) {
+  var Config, Humane, inject, I18N, readonly, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _class, _desc, _value, _class2, Notification;
 
-  var _createDecoratedClass = (function () { function defineProperties(target, descriptors, initializers) { for (var i = 0; i < descriptors.length; i++) { var descriptor = descriptors[i]; var decorators = descriptor.decorators; var key = descriptor.key; delete descriptor.key; delete descriptor.decorators; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor || descriptor.initializer) descriptor.writable = true; if (decorators) { for (var f = 0; f < decorators.length; f++) { var decorator = decorators[f]; if (typeof decorator === 'function') { descriptor = decorator(target, key, descriptor) || descriptor; } else { throw new TypeError('The decorator for method ' + descriptor.key + ' is of the invalid type ' + typeof decorator); } } if (descriptor.initializer !== undefined) { initializers[key] = descriptor; continue; } } Object.defineProperty(target, key, descriptor); } } return function (Constructor, protoProps, staticProps, protoInitializers, staticInitializers) { if (protoProps) defineProperties(Constructor.prototype, protoProps, protoInitializers); if (staticProps) defineProperties(Constructor, staticProps, staticInitializers); return Constructor; }; })();
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
 
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+    var desc = {};
+    Object['ke' + 'ys'](descriptor).forEach(function (key) {
+      desc[key] = descriptor[key];
+    });
+    desc.enumerable = !!desc.enumerable;
+    desc.configurable = !!desc.configurable;
+
+    if ('value' in desc || desc.initializer) {
+      desc.writable = true;
+    }
+
+    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+      return decorator(target, property, desc) || desc;
+    }, desc);
+
+    if (context && desc.initializer !== void 0) {
+      desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+      desc.initializer = undefined;
+    }
+
+    if (desc.initializer === void 0) {
+      Object['define' + 'Property'](target, property, desc);
+      desc = null;
+    }
+
+    return desc;
+  }
 
   return {
     setters: [function (_config) {
       Config = _config.Config;
     }, function (_wavdedHumaneJs) {
-      Humane = _wavdedHumaneJs['default'];
+      Humane = _wavdedHumaneJs.default;
     }, function (_aureliaDependencyInjection) {
       inject = _aureliaDependencyInjection.inject;
     }, function (_aureliaI18n) {
@@ -20,11 +51,11 @@ System.register(['./config', 'wavded/humane-js', 'aurelia-dependency-injection',
       readonly = _javascriptDecorators.readonly;
     }],
     execute: function () {
-      Notification = (function () {
+      _export('Notification', Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec9 = readonly(), _dec(_class = (_class2 = function () {
         function Notification(config, humane, i18n) {
           var _this = this;
 
-          _classCallCheck(this, _Notification);
+          _classCallCheck(this, Notification);
 
           this.define('__config', config).define('__humane', humane).define('__i18n', i18n);
 
@@ -42,110 +73,90 @@ System.register(['./config', 'wavded/humane-js', 'aurelia-dependency-injection',
           document.addEventListener('aurelia-composed', aureliaComposedListener);
         }
 
-        _createDecoratedClass(Notification, [{
-          key: 'define',
-          decorators: [readonly()],
-          value: function define(property, value, writable) {
-            Object.defineProperty(this, property, {
-              value: value,
-              writable: !!writable,
-              enumerable: false
-            });
+        Notification.prototype.define = function define(property, value, writable) {
+          Object.defineProperty(this, property, {
+            value: value,
+            writable: !!writable,
+            enumerable: false
+          });
 
-            return this;
+          return this;
+        };
+
+        Notification.prototype.configure = function configure(incomming) {
+          this.__config.configure(incomming, this.__config);
+
+          this.setBaseCls(incomming.defaults.baseCls);
+          this.setContainer(this.__config.container);
+
+          for (var key in this.__config.notifications) {
+            this[key] = this.spawn(this.__config.notifications[key]);
           }
-        }, {
-          key: 'configure',
-          decorators: [readonly()],
-          value: function configure(incomming) {
-            this.__config.configure(incomming, this.__config);
 
-            this.setBaseCls(incomming.defaults.baseCls);
-            this.setContainer(this.__config.container);
+          return this.__config;
+        };
 
-            for (var key in this.__config.notifications) {
-              this[key] = this.spawn(this.__config.notifications[key]);
+        Notification.prototype.setContainer = function setContainer() {
+          var container = arguments.length <= 0 || arguments[0] === undefined ? document.body : arguments[0];
+
+          this.__humane.container = container;
+          this.__humane.container.appendChild(this.__humane.el);
+          return this.__humane.container;
+        };
+
+        Notification.prototype.setBaseCls = function setBaseCls() {
+          var baseCls = arguments.length <= 0 || arguments[0] === undefined ? this.__config.defaults.baseCls : arguments[0];
+
+          this.__humane.baseCls = baseCls ? baseCls : this.__humane.baseCls;
+          return this.__humane.baseCls;
+        };
+
+        Notification.prototype.translate = function translate(options, defaults) {
+          var joined = Object.assign({}, this.__config, defaults, options);
+          return this.__i18n.i18next.isInitialized() && joined.translate;
+        };
+
+        Notification.prototype.log = function log(message, options) {
+          var _this2 = this;
+
+          var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];
+
+          if (this.translate()) {
+            if (message instanceof Array) {
+              message = message.map(function (item) {
+                return _this2.i18n.tr(item);
+              });
+            } else {
+              message = this.__i18n.tr(message);
             }
-
-            return this.__config;
           }
-        }, {
-          key: 'setContainer',
-          decorators: [readonly()],
-          value: function setContainer() {
-            var container = arguments.length <= 0 || arguments[0] === undefined ? document.body : arguments[0];
 
-            this.__humane.container = container;
-            this.__humane.container.appendChild(this.__humane.el);
-            return this.__humane.container;
-          }
-        }, {
-          key: 'setBaseCls',
-          decorators: [readonly()],
-          value: function setBaseCls() {
-            var baseCls = arguments.length <= 0 || arguments[0] === undefined ? this.__config.defaults.baseCls : arguments[0];
+          return new Promise(function (resolve, reject) {
+            _this2.__humane.log(message, options, resolve, defaults);
+          });
+        };
 
-            this.__humane.baseCls = baseCls ? baseCls : this.__humane.baseCls;
-            return this.__humane.baseCls;
-          }
-        }, {
-          key: 'translate',
-          decorators: [readonly()],
-          value: function translate(options, defaults) {
-            var joined = Object.assign({}, this.__config, defaults, options);
-            return this.__i18n.i18next.isInitialized() && joined.translate;
-          }
-        }, {
-          key: 'log',
-          decorators: [readonly()],
-          value: function log(message, options) {
-            var _this2 = this;
+        Notification.prototype.spawn = function spawn(addnDefaults) {
+          var _this3 = this;
 
-            var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];
+          addnDefaults = typeof addnDefaults === 'string' ? { 'addnCls': addnDefaults } : addnDefaults;
+          var defaults = Object.assign({}, this.__config.defaults, addnDefaults);
 
-            if (this.translate()) {
-              if (message instanceof Array) {
-                message = message.map(function (item) {
-                  return _this2.i18n.tr(item);
-                });
-              } else {
-                message = this.__i18n.tr(message);
-              }
-            }
+          return function (message, options) {
+            return _this3.log(message, options, defaults);
+          };
+        };
 
-            return new Promise(function (resolve, reject) {
-              _this2.__humane.log(message, options, resolve, defaults);
-            });
-          }
-        }, {
-          key: 'spawn',
-          decorators: [readonly()],
-          value: function spawn(addnDefaults) {
-            var _this3 = this;
+        Notification.prototype.remove = function remove() {
+          var _this4 = this;
 
-            addnDefaults = typeof addnDefaults === 'string' ? { 'addnCls': addnDefaults } : addnDefaults;
-            var defaults = Object.assign({}, this.__config.defaults, addnDefaults);
+          return new Promise(function (resolve, reject) {
+            _this4.__humane.remove(resolve);
+          });
+        };
 
-            return function (message, options) {
-              return _this3.log(message, options, defaults);
-            };
-          }
-        }, {
-          key: 'remove',
-          decorators: [readonly()],
-          value: function remove() {
-            var _this4 = this;
-
-            return new Promise(function (resolve, reject) {
-              _this4.__humane.remove(resolve);
-            });
-          }
-        }]);
-
-        var _Notification = Notification;
-        Notification = inject(Config, Humane, I18N)(Notification) || Notification;
         return Notification;
-      })();
+      }(), (_applyDecoratedDescriptor(_class2.prototype, 'define', [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, 'define'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'configure', [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, 'configure'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'setContainer', [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, 'setContainer'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'setBaseCls', [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, 'setBaseCls'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'translate', [_dec6], Object.getOwnPropertyDescriptor(_class2.prototype, 'translate'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'log', [_dec7], Object.getOwnPropertyDescriptor(_class2.prototype, 'log'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'spawn', [_dec8], Object.getOwnPropertyDescriptor(_class2.prototype, 'spawn'), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, 'remove', [_dec9], Object.getOwnPropertyDescriptor(_class2.prototype, 'remove'), _class2.prototype)), _class2)) || _class));
 
       _export('Notification', Notification);
     }
