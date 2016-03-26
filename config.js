@@ -17,6 +17,7 @@ System.config({
   map: {
     "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.2.0",
     "aurelia-i18n": "npm:aurelia-i18n@0.4.13",
+    "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.0",
     "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0-beta.1.1.0",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
