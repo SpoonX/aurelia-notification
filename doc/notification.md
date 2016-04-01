@@ -1,7 +1,7 @@
 # Docs for {`Notification`}
 
 ```javascript
-import {Notification} from 'spoonx/aurelia-notification';
+import {Notification} from 'aurelia-notification';
 ```
 
 ----------
