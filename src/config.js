@@ -1,7 +1,9 @@
 export class Config {
-  // defaults
+  // translate on/off
   translate = true
+  // defaults for all notifictaions
   defaults = {}
+  // notification names and their specific defaults
   notifications = {
     note: {},
     success: {addnCls: 'success'},
