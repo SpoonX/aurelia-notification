@@ -1,14 +1,6 @@
 System.config({
   defaultJSExtensions: true,
-  transpiler: "babel",
-  babelOptions: {
-    "optional": [
-      "runtime",
-      "optimisation.modules.system",
-      "es7.decorators",
-      "es7.classProperties"
-    ]
-  },
+  transpiler: false,
   paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
@@ -19,9 +11,6 @@ System.config({
     "aurelia-i18n": "npm:aurelia-i18n@0.4.13",
     "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.2.0",
     "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0-beta.1.1.0",
-    "babel": "npm:babel-core@5.8.38",
-    "babel-runtime": "npm:babel-runtime@5.8.38",
-    "core-js": "npm:core-js@1.2.6",
     "javascript-decorators": "npm:javascript-decorators@0.7.1",
     "wavded/humane-js": "github:wavded/humane-js@3.2.2",
     "github:jspm/nodelibs-assert@0.1.0": {
