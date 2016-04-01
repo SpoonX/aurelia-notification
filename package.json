@@ -23,28 +23,37 @@
   "scripts": {},
   "jspm": {
     "jspmPackage": true,
+    "registry": "npm",
     "main": "aurelia-notification",
     "format": "amd",
     "directories": {
       "dist": "dist/amd"
     },
     "dependencies": {
-      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@^1.0.0-beta.1.2.0",
-      "aurelia-i18n": "npm:aurelia-i18n@^0.4.13",
-      "aurelia-pal": "npm:aurelia-pal@^1.0.0-beta.1.2.0",
-      "javascript-decorators": "npm:javascript-decorators@^0.7.1",
-      "wavded/humane-js": "github:wavded/humane-js@^3.2.2"
+      "aurelia-dependency-injection": "^1.0.0-beta.1.2.0",
+      "aurelia-i18n": "^0.5.0",
+      "aurelia-pal": "^1.0.0-beta.1.2.0",
+      "humane-js": "^3.2.2",
+      "javascript-decorators": "^0.7.1"
     },
     "peerDependencies": {
-      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@^1.0.0-beta.1.2.0",
-      "aurelia-i18n": "npm:aurelia-i18n@^0.4.13",
-      "aurelia-pal": "npm:aurelia-pal@^1.0.0-beta.1.2.0",
-      "javascript-decorators": "npm:javascript-decorators@^0.7.1",
-      "wavded/humane-js": "github:wavded/humane-js@^3.2.2"
+      "aurelia-dependency-injection": "^1.0.0-beta.1.2.0",
+      "aurelia-i18n": "^0.5.0",
+      "aurelia-pal": "^1.0.0-beta.1.2.0",
+      "humane-js": "^3.2.2",
+      "javascript-decorators": "^0.7.1"
     },
     "devDependencies": {
-      "aurelia-polyfills": "npm:aurelia-polyfills@^1.0.0-beta.1.1.0",
+      "aurelia-polyfills": "^1.0.0-beta.1.1.0",
+      "extend": "^3.0.0"
     }
+  },
+  "dependencies": {
+    "aurelia-dependency-injection": "^1.0.0-beta.1.2.0",
+    "aurelia-i18n": "^0.5.0",
+    "aurelia-pal": "^1.0.0-beta.1.2.0",
+    "humane-js": "^3.2.2",
+    "javascript-decorators": "^0.7.1"
   },
   "devDependencies": {
     "aurelia-tools": "^0.1.20",
@@ -66,13 +75,12 @@
     "gulp-bump": "^2.0.1",
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^1.1.1",
-    "gulp-remark": "^1.1.5",
     "gulp-insert": "^0.5.0",
+    "gulp-remark": "^1.1.5",
     "gulp-rename": "^1.2.2",
     "gulp-typedoc": "^1.2.1",
     "gulp-typedoc-extractor": "0.0.8",
     "jasmine-core": "^2.1.3",
-    "jspm": "^0.16.15",
     "karma": "^0.13.15",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-chrome-launcher": "^0.2.2",

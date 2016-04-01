@@ -19,7 +19,7 @@ This library can be used in the **browser** only.
 
 ## Important note
 
-This plugin is now registered with npm and jspm as `aurelia-notification`. This simplifies the installation.
+This plugin is now registered with npm and jspm as `aurelia-notification`. This simplifies the installation. With this change `aurelia-notification` will reference to [humane-js](http://wavded.github.io/humane-js/) as `humane-js` only (loosing the `wavded/..` prefix). You will need to update your project's package.json accordingly to prevent forks.
 
 ## Installation
 
@@ -27,7 +27,7 @@ Installing this module is fairly simple.
 
 Run `jspm install aurelia-notification` from your project root.
 
-Either set your own styles or install humane.js with `jspm install github:wavded/humane-js` to have some default styles to choose from.
+Either set your own styles or install humane-js with `jspm install humane-js` to have some default styles to choose from.
 
 ## Usage
 
@@ -59,11 +59,11 @@ Import the module, and get cracking.
 import {inject} from 'aurelia-framework';
 import {Notification} from 'aurelia-notification';
 /* optional:
- * import a css file to use one of the humane.js styles for the notifications.
+ * import a css file to use one of the humane-js styles for the notifications.
  * For the four default notification types to display correctly also set the
  * corresponding classes in the plugin configuration (see example above).
  */
-// import "wavded/humane-js/themes/libnotify.css!";
+// import "humane-js/themes/libnotify.css!";
 
 @inject(Notification)
 export class SomeViewModel {

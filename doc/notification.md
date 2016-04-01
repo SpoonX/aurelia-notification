@@ -13,9 +13,9 @@ Set a new configuration based on current configuration. The same options as in t
 ```javascript
 {
   translate: true,      // translate messages
-  defaults: {},          // defaults for all notificatons are humane.js defaults
+  defaults: {},         // defaults for all notificatons are humane-js defaults
   notifications: {      // default methods definitions
-    note: {},            // method name and their defaults
+    note: {},           // method name and their defaults
     success: {addnCls: 'success'},
     error: {addnCls: 'error'},
     info: {addnCls: 'info'}
@@ -23,7 +23,7 @@ Set a new configuration based on current configuration. The same options as in t
 }
 ```
 
-The notifications object accepts `methodName:'addnClsName'` or `methodName:optionsObject`. defaults.baseCls sets the base css class for humane.js notifications. The default of humane.js is {baseCls: 'humane'}. For the available defaults/options see [humane.js](http://wavded.github.io/humane-js/).
+The notifications object accepts `methodName:'addnClsName'` or `methodName:optionsObject`. defaults.baseCls sets the base css class for humane-js notifications. The default of humane-js is {baseCls: 'humane'}. For the available defaults/options see [humane-js](http://wavded.github.io/humane-js/).
 
 ### Parameters
 
@@ -133,7 +133,7 @@ As per the default configuration, method shortcuts for .log with addnCls default
 | Parameter | Type         | Description                               |
 | --------- | ------------ | ----------------------------------------- |
 | message   | string/array | The message as string or array of strings |
-| options   | object       | Additional options for humane.js          |
+| options   | object       | Additional options for humane-js          |
 
 ### Returns
 
