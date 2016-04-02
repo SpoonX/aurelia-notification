@@ -4,6 +4,7 @@ import {inject} from 'aurelia-dependency-injection';
 import {I18N} from 'aurelia-i18n';
 import {readonly} from 'javascript-decorators';
 import {DOM} from 'aurelia-pal';
+import extend from 'extend';
 
 @inject(Config, Humane, I18N)
 export class Notification {
@@ -61,27 +62,6 @@ export class Notification {
   }
 
   /**
-   * Set a new configuration based on configuration
-   *
-   * @param {{}}  [incomming] the custom config object.
-   *
-   *
-   */
-  @readonly()
-  configure(incomming) {
-    this.__config.configure(incomming, this.__config);
-
-    this.setBaseCls(incomming.defaults.baseCls);
-    this.setContainer(this.__config.container);
-
-    for (let key in this.__config.notifications) {
-      this[key] = this.spawn(this.__config.notifications[key]);
-    }
-
-    return this.__config;
-  }
-
-  /**
    * Set the container for the notifications
    *
    * @param {[DOM.node]}  [container] for the notifications
@@ -121,8 +101,8 @@ export class Notification {
    */
   @readonly()
   translate(options, defaults) {
-    let joined = Object.assign({}, this.__config, defaults, options);
-    return this.__i18n.i18next.isInitialized() && joined.translate;
+    let joined = extend({}, this.__config, defaults, options);
+    return joined.translate;
   }
 
   /**
@@ -145,8 +125,8 @@ export class Notification {
       }
     }
 
-    return new Promise((resolve, reject)=>{
-      this.__humane.log(message, options, resolve, defaults);
+    return new Promise(resolve => {
+      return this.__humane.log(message, options, resolve, defaults);
     });
   }
 
@@ -162,7 +142,7 @@ export class Notification {
   @readonly()
   spawn(addnDefaults) {
     addnDefaults = (typeof addnDefaults === 'string') ? {'addnCls': addnDefaults} : addnDefaults;
-    let defaults = Object.assign({}, this.__config.defaults, addnDefaults);
+    let defaults = extend({}, this.__config.defaults, addnDefaults);
 
     return (message, options) => {
       return this.log(message, options, defaults);
@@ -177,8 +157,8 @@ export class Notification {
    */
   @readonly()
   remove() {
-    return new Promise((resolve, reject)=>{
-      this.__humane.remove(resolve);
+    return new Promise(resolve => {
+      return this.__humane.remove(resolve);
     });
   }
 }
