@@ -20,7 +20,9 @@
     "type": "git",
     "url": "https://github.com/SpoonX/aurelia-notification"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "./node_modules/.bin/gulp test"
+  },
   "jspm": {
     "jspmPackage": true,
     "registry": "npm",
@@ -46,7 +48,10 @@
       "javascript-decorators": "^0.7.1"
     },
     "devDependencies": {
+      "aurelia-bootstrapper": "^1.0.0-beta.1.2.0",
+      "aurelia-pal-browser": "^1.0.0-beta.1.2.0",
       "aurelia-polyfills": "^1.0.0-beta.1.1.0",
+      "i18next-xhr-backend": "^0.5.3"
     }
   },
   "dependencies": {
