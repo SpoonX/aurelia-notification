@@ -19,15 +19,15 @@ This library can be used in the **browser** only.
 
 ## Important note
 
-This plugin is now registered with npm and jspm as `aurelia-notification`. This simplifies the installation. With this change `aurelia-notification` will reference to [humane-js](http://wavded.github.io/humane-js/) as `humane-js` only (loosing the `wavded/..` prefix). You will need to update your project's package.json accordingly to prevent forks.
+We've simplified installation and usage! This plugin should now be installed using `jspm i aurelia-notification` or (for webpack) `npm i aurelia-notification`. With this change `aurelia-notification` will use an npm installation of [humane-js](http://wavded.github.io/humane-js/). Make sure you update all references to `spoonx/aurelia-notification` and, if applicable to `wavded/humane-js`, remove the `spoonx/` resp. `wavded/` prefixes (don't forget your config.js, package.json, imports and bundles).
 
 ## Installation
 
 Installing this module is fairly simple.
 
-Run `jspm install aurelia-notification` from your project root.
+Run `jspm i aurelia-notification` from your project root.
 
-Either set your own styles or install humane-js with `jspm install humane-js` to have some default styles to choose from.
+Either set your own styles or install `humane-js` with `jspm i npm:humane-js` to have some default styles to choose from.
 
 ## Usage
 
