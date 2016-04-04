@@ -1,5 +1,5 @@
 import {Config} from './config';
-import Humane from 'wavded/humane-js';
+import Humane from 'humane-js';
 import {inject} from 'aurelia-dependency-injection';
 import {I18N} from 'aurelia-i18n';
 import {readonly} from 'javascript-decorators';

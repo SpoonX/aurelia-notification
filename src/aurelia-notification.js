@@ -6,6 +6,7 @@ function configure(aurelia, config) {
 }
 
 export {
+  Config,
   Notification,
   configure
 };
