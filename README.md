@@ -5,7 +5,7 @@
 
 This library is an unofficial plugin for the [Aurelia](http://www.aurelia.io/) platform and contains a simple but fully configurable notification service using [humane-js](http://wavded.github.io/humane-js/). While all options of humane-js are available (instead of adding callbacks, promises are returned where applicable though), basic usage doesn't require more than adding your own css or selecting one of humane-js css files as specified below.
 
-**Note:** If [aurelia i18n](https://github.com/aurelia/i18n) is installed and configured, all notifications get automatically translated. You can turn off translations, either generally in the optional plugin configuration, or for individual notifications.
+**Note:** [aurelia i18n](https://github.com/aurelia/i18n) needs to be installed and configured. All notifications will get automatically translated. You can turn off translations, either generally in the optional plugin configuration, or for individual notifications.
 
 > To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to [join us on Gitter](https://gitter.im/aurelia/discuss). If you would like to have deeper insight into our development process, please install the [ZenHub](https://zenhub.io) Chrome Extension and visit any of our repository's boards. You can get an overview of all Aurelia work by visiting [the framework board](https://github.com/aurelia/framework#boards).
 

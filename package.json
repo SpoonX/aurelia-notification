@@ -20,7 +20,9 @@
     "type": "git",
     "url": "https://github.com/SpoonX/aurelia-notification"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "./node_modules/.bin/gulp test"
+  },
   "jspm": {
     "jspmPackage": true,
     "registry": "npm",
@@ -33,6 +35,7 @@
       "aurelia-dependency-injection": "^1.0.0-beta.1.2.0",
       "aurelia-i18n": "^0.5.0",
       "aurelia-pal": "^1.0.0-beta.1.2.0",
+      "extend": "^3.0.0",
       "humane-js": "^3.2.2",
       "javascript-decorators": "^0.7.1"
     },
@@ -40,18 +43,22 @@
       "aurelia-dependency-injection": "^1.0.0-beta.1.2.0",
       "aurelia-i18n": "^0.5.0",
       "aurelia-pal": "^1.0.0-beta.1.2.0",
+      "extend": "^3.0.0",
       "humane-js": "^3.2.2",
       "javascript-decorators": "^0.7.1"
     },
     "devDependencies": {
+      "aurelia-bootstrapper": "^1.0.0-beta.1.2.0",
+      "aurelia-pal-browser": "^1.0.0-beta.1.2.0",
       "aurelia-polyfills": "^1.0.0-beta.1.1.0",
-      "extend": "^3.0.0"
+      "i18next-xhr-backend": "^0.5.3"
     }
   },
   "dependencies": {
     "aurelia-dependency-injection": "^1.0.0-beta.1.2.0",
     "aurelia-i18n": "^0.5.0",
     "aurelia-pal": "^1.0.0-beta.1.2.0",
+    "extend": "^3.0.0",
     "humane-js": "^3.2.2",
     "javascript-decorators": "^0.7.1"
   },
