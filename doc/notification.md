@@ -23,7 +23,7 @@ Set a new configuration based on current configuration. The same options as in t
 }
 ```
 
-The notifications object accepts `methodName:'addnClsName'` or `methodName:optionsObject`. defaults.baseCls sets the base css class for humane-js notifications. The default of humane-js is {baseCls: 'humane'}. For the available defaults/options see [humane-js](http://wavded.github.io/humane-js/).
+The notifications object accepts `methodName:'addnClsName'` or `methodName:optionsObject`. defaults.baseCls sets the base css class for humane-js notifications. The default of humane-js is {baseCls: 'humane'}. For the available defaults/options see [humane-js](https://www.npmjs.com/package/humane-js).
 
 ### Parameters
 
