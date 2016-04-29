@@ -1,7 +1,6 @@
 # aurelia-notification
 
-[![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.io)
-[![Join the chat at https://gitter.im/aurelia/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/aurelia/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=plastic)](https://gitter.im/SpoonX/Dev)
 
 This library is an unofficial plugin for the [Aurelia](http://www.aurelia.io/) platform and contains a simple but fully configurable notification service using [humane-js](https://www.npmjs.com/package/humane-js). While all options of humane-js are available (instead of adding callbacks, promises are returned where applicable though), basic usage doesn't require more than adding your own css or selecting one of humane-js css files as specified below.
 
@@ -71,7 +70,7 @@ export class SomeViewModel {
   constructor (notification) {
     notification.note('Plain');
     notification.success('Record created successfully');
-    notification.error('Record creation failed');    
+    notification.error('Record creation failed');
     notification.info('New message');
   }
 }
