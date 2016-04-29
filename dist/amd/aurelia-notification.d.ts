@@ -1,19 +1,13 @@
 declare module 'aurelia-notification' {
-  import Humane from 'wavded/humane-js';
-  import {
-    inject
-  } from 'aurelia-dependency-injection';
-  import {
-    I18N
-  } from 'aurelia-i18n';
-  import {
-    readonly
-  } from 'javascript-decorators';
   export class Config {
     
-    // defaults
+    // translate on/off
     translate: any;
+    
+    // defaults for all notifictaions
     defaults: any;
+    
+    // notification names and their specific defaults
     notifications: any;
     configure(incomming?: any, base?: any): any;
   }
@@ -42,23 +36,14 @@ declare module 'aurelia-notification' {
     define(property: any, value: any, writable: any): any;
     
     /**
-       * Set a new configuration based on configuration
-       *
-       * @param {{}}  [incomming] the custom config object.
-       *
-       *
-       */
-    configure(incomming: any): any;
-    
-    /**
        * Set the container for the notifications
        *
-       * @param {[DOM.node]}  [container] for the notifications (default=doc.body)
+       * @param {[DOM.node]}  [container] for the notifications
        *
        * @return {DOM.node}  [container]
        *
        */
-    setContainer(container?: any): any;
+    setContainer(container: any): any;
     
     /**
        * Set the base css class for the notifications

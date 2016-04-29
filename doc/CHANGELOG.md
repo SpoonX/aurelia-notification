@@ -1,3 +1,35 @@
+<a name"1.0.0-rc1"></a>
+## 1.0.0-rc1 (2016-04-29)
+
+
+#### Bug Fixes
+
+* **config:** use extend to apply options correctly ([a6f6bb2d](https://github.com/SpoonX/aurelia-notification/commit/a6f6bb2d))
+
+
+#### Features
+
+* **project:**
+  * bundle into single file ([183a22d5](https://github.com/SpoonX/aurelia-notification/commit/183a22d5))
+  * allow npm installation. update aurelia-i18n to ^ 0.5.0 ([cc9d0be3](https://github.com/SpoonX/aurelia-notification/commit/cc9d0be3))
+  * Rename project to remove spoonx prefix ([a62b1f20](https://github.com/SpoonX/aurelia-notification/commit/a62b1f20))
+  * export Config ([cce7508c](https://github.com/SpoonX/aurelia-notification/commit/cce7508c))
+
+
+#### Breaking Changes
+
+* Removed unnneded configure function in Notification. Use the exported Config instread
+BREAKING CHANGE: Cannot be used without aurelia-i18n anymore
+
+ ([a6f6bb2d](https://github.com/SpoonX/aurelia-notification/commit/a6f6bb2d))
+* all imports need to use 'aurelia-notification'
+
+ ([183a22d5](https://github.com/SpoonX/aurelia-notification/commit/183a22d5))
+* `wavded/` prefix dropped from install name humane-js. Update `package.json` and `config.js` accordingly.
+
+ ([cc9d0be3](https://github.com/SpoonX/aurelia-notification/commit/cc9d0be3))
+
+
 <a name"0.0.6"></a>
 ### 0.0.6 (2016-03-25)
 
