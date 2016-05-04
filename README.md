@@ -41,6 +41,7 @@ aurelia.use
   /* Your other plugins and init code */
   .plugin('aurelia-notification', config => {
     config.configure({
+      translate: false,  // 'true' needs aurelia-i18n to be configured
       notifications: {
         'success': 'humane-libnotify-success',
         'error': 'humane-libnotify-error',

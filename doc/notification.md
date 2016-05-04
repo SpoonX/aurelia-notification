@@ -12,7 +12,8 @@ Set a new configuration based on current configuration. The same options as in t
 
 ```javascript
 {
-  translate: true,      // translate messages
+  translate: true,      // translate messages {true/false}.
+                        // translate: true needs aurelia-i18n to be configured
   defaults: {},         // defaults for all notificatons are humane-js defaults
   notifications: {      // default methods definitions
     note: {},           // method name and their defaults
