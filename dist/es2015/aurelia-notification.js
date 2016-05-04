@@ -58,6 +58,14 @@ export let Config = class Config {
 };
 
 export let Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec(_class2 = (_class3 = class Notification {
+  note(message, options = {}, defaults = this.__config.defaults) {}
+
+  success(message, options = {}, defaults = this.__config.defaults) {}
+
+  error(message, options = {}, defaults = this.__config.defaults) {}
+
+  info(message, options = {}, defaults = this.__config.defaults) {}
+
   constructor(config, humane, i18n) {
     this.define('__config', config).define('__humane', humane).define('__i18n', i18n);
 
@@ -96,12 +104,12 @@ export let Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly
     return this.__humane.baseCls;
   }
 
-  translate(options, defaults) {
+  translate(options = {}, defaults = {}) {
     let joined = extend({}, this.__config, defaults, options);
     return joined.translate;
   }
 
-  log(message, options, defaults = this.__config.defaults) {
+  log(message, options = {}, defaults = this.__config.defaults) {
     if (this.translate()) {
       if (message instanceof Array) {
         message = message.map(item => this.i18n.tr(item));

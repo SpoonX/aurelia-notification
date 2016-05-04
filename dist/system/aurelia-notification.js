@@ -88,6 +88,26 @@ System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia
       _export('Config', Config);
 
       _export('Notification', _export('Notification', Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec(_class2 = (_class3 = function () {
+        Notification.prototype.note = function note(message) {
+          var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+          var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];
+        };
+
+        Notification.prototype.success = function success(message) {
+          var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+          var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];
+        };
+
+        Notification.prototype.error = function error(message) {
+          var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+          var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];
+        };
+
+        Notification.prototype.info = function info(message) {
+          var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+          var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];
+        };
+
         function Notification(config, humane, i18n) {
           var _this = this;
 
@@ -132,14 +152,18 @@ System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia
           return this.__humane.baseCls;
         };
 
-        Notification.prototype.translate = function translate(options, defaults) {
+        Notification.prototype.translate = function translate() {
+          var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+          var defaults = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
           var joined = extend({}, this.__config, defaults, options);
           return joined.translate;
         };
 
-        Notification.prototype.log = function log(message, options) {
+        Notification.prototype.log = function log(message) {
           var _this2 = this;
 
+          var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
           var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];
 
           if (this.translate()) {

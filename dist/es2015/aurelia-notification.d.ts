@@ -14,6 +14,54 @@ declare module 'aurelia-notification' {
   export class Notification {
     
     /**
+         * Notify 'note' (translated if applicable) using humane.log.
+         *
+         * @param {String|String[]}  message|multi-line message.
+         * @param {{}}               [options] for this particular notification.
+         * @param {{}}               [defaults] for this type of notification.
+         *
+         * @return {Promise}
+         *
+         */
+    note(message?: any, options?: any, defaults?: any): any;
+    
+    /**
+         * Notify 'success' (translated if applicable) using humane.log.
+         *
+         * @param {String|String[]}  message|multi-line message.
+         * @param {{}}               [options] for this particular notification.
+         * @param {{}}               [defaults] for this type of notification.
+         *
+         * @return {Promise}
+         *
+         */
+    success(message?: any, options?: any, defaults?: any): any;
+    
+    /**
+         * Notify 'error' (translated if applicable) using humane.log.
+         *
+         * @param {String|String[]}  message|multi-line message.
+         * @param {{}}               [options] for this particular notification.
+         * @param {{}}               [defaults] for this type of notification.
+         *
+         * @return {Promise}
+         *
+         */
+    error(message?: any, options?: any, defaults?: any): any;
+    
+    /**
+         * Notify 'info' (translated if applicable) using humane.log.
+         *
+         * @param {String|String[]}  message|multi-line message.
+         * @param {{}}               [options] for this particular notification.
+         * @param {{}}               [defaults] for this type of notification.
+         *
+         * @return {Promise}
+         *
+         */
+    info(message?: any, options?: any, defaults?: any): any;
+    
+    /**
        * Construct.
        *
        * @param {Config} config
@@ -22,7 +70,7 @@ declare module 'aurelia-notification' {
        *
        * @constructor
        */
-    constructor(config: any, humane: any, i18n: any);
+    constructor(config?: any, humane?: any, i18n?: any);
     
     /**
        * Define a non-enumerable property on the Notification.
@@ -33,7 +81,7 @@ declare module 'aurelia-notification' {
        *
        * @return {Notification}
        */
-    define(property: any, value: any, writable: any): any;
+    define(property?: any, value?: any, writable?: any): any;
     
     /**
        * Set the container for the notifications
@@ -43,7 +91,7 @@ declare module 'aurelia-notification' {
        * @return {DOM.node}  [container]
        *
        */
-    setContainer(container: any): any;
+    setContainer(container?: any): any;
     
     /**
        * Set the base css class for the notifications
@@ -64,7 +112,7 @@ declare module 'aurelia-notification' {
        * @return {Boolean}
        *
        */
-    translate(options: any, defaults: any): any;
+    translate(options?: any, defaults?: any): any;
     
     /**
        * Notify (translated if applicable) using humane.log.
@@ -76,7 +124,7 @@ declare module 'aurelia-notification' {
        * @return {Promise}
        *
        */
-    log(message: any, options: any, defaults?: any): any;
+    log(message?: any, options?: any, defaults?: any): any;
     
     /**
        * Set a custom shortcut for .log with defaults based on global defaults
@@ -87,7 +135,7 @@ declare module 'aurelia-notification' {
        * @return {function(message, options)}
        *
        */
-    spawn(addnDefaults: any): any;
+    spawn(addnDefaults?: any): any;
     
     /**
        * Force remove humane log
