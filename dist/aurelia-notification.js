@@ -31,6 +31,55 @@ export class Config {
 export class Notification {
 
   /**
+     * Notify 'note' (translated if applicable) using humane.log.
+     *
+     * @param {String|String[]}  message|multi-line message.
+     * @param {{}}               [options] for this particular notification.
+     * @param {{}}               [defaults] for this type of notification.
+     *
+     * @return {Promise}
+     *
+     */
+  note(message, options = {}, defaults = this.__config.defaults) {}
+
+  /**
+     * Notify 'success' (translated if applicable) using humane.log.
+     *
+     * @param {String|String[]}  message|multi-line message.
+     * @param {{}}               [options] for this particular notification.
+     * @param {{}}               [defaults] for this type of notification.
+     *
+     * @return {Promise}
+     *
+     */
+  success(message, options = {}, defaults = this.__config.defaults) {}
+
+  /**
+     * Notify 'error' (translated if applicable) using humane.log.
+     *
+     * @param {String|String[]}  message|multi-line message.
+     * @param {{}}               [options] for this particular notification.
+     * @param {{}}               [defaults] for this type of notification.
+     *
+     * @return {Promise}
+     *
+     */
+  error(message, options = {}, defaults = this.__config.defaults) {}
+
+  /**
+     * Notify 'info' (translated if applicable) using humane.log.
+     *
+     * @param {String|String[]}  message|multi-line message.
+     * @param {{}}               [options] for this particular notification.
+     * @param {{}}               [defaults] for this type of notification.
+     *
+     * @return {Promise}
+     *
+     */
+  info(message, options = {}, defaults = this.__config.defaults) {}
+
+
+  /**
    * Construct.
    *
    * @param {Config} config
@@ -121,7 +170,7 @@ export class Notification {
    *
    */
   @readonly()
-  translate(options, defaults) {
+  translate(options = {}, defaults = {}) {
     let joined = extend({}, this.__config, defaults, options);
     return joined.translate;
   }
@@ -137,7 +186,7 @@ export class Notification {
    *
    */
   @readonly()
-  log(message, options, defaults = this.__config.defaults) {
+  log(message, options = {}, defaults = this.__config.defaults) {
     if (this.translate()) {
       if (message instanceof Array) {
         message = message.map(item=>this.i18n.tr(item));
