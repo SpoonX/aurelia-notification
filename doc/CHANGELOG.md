@@ -1,3 +1,12 @@
+<a name"1.0.0-rc2"></a>
+### 1.0.0-rc2 (2016-04-30)
+
+
+#### Features
+
+* **notification:** improved generated typings ([25f8548e](https://github.com/SpoonX/aurelia-notification/commit/25f8548e))
+
+
 <a name"1.0.0-rc1"></a>
 ## 1.0.0-rc1 (2016-04-29)
 
@@ -69,5 +78,3 @@ BREAKING CHANGE: Cannot be used without aurelia-i18n anymore
 * **notification:**
   * Return promises. Easier configuration ([4e68a1dc](https://github.com/SpoonX/aurelia-notification/commit/4e68a1dc))
   * translation is optional, more api methods, support for humane-js css library. no ([293ac3c1](https://github.com/SpoonX/aurelia-notification/commit/293ac3c1))
-
-
