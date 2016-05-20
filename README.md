@@ -2,7 +2,7 @@
 
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=plastic)](https://gitter.im/SpoonX/Dev)
 
-This library is an unofficial plugin for the [Aurelia](http://www.aurelia.io/) platform and contains a simple but fully configurable notification service using [humane-js](https://www.npmjs.com/package/humane-js). While all options of humane-js are available (instead of adding callbacks, promises are returned where applicable though), basic usage doesn't require more than adding your own css or selecting one of humane-js css files as specified below.
+This library is an unofficial plugin for the [Aurelia](http://www.aurelia.io/) platform and contains a simple but fully configurable notification service using [humane-js](http://wavded.github.io/humane-js/). While all options of humane-js are available (instead of adding callbacks, promises are returned where applicable though), basic usage doesn't require more than adding your own css or selecting one of humane-js css files as specified below.
 
 **Note:** [aurelia i18n](https://github.com/aurelia/i18n) needs to be installed and configured. All notifications will get automatically translated. You can turn off translations, either generally in the optional plugin configuration, or for individual notifications.
 
@@ -26,7 +26,7 @@ Installing this module is fairly simple.
 
 Run `jspm i aurelia-notification` from your project root.
 
-Either set your own styles or install `humane-js` with `jspm i npm:humane-js` to have some default styles to choose from.
+Either add your custom humane-js-based style or install `humane-js` with `jspm i npm:humane-js` to have some default styles to choose from. See the [humane-js custom-themes](https://github.com/wavded/humane-js#custom-themes) for instructions to make a custom style.
 
 ## Usage
 
@@ -58,12 +58,11 @@ Import the module, and get cracking.
 ```javascript
 import {inject} from 'aurelia-framework';
 import {Notification} from 'aurelia-notification';
-/* optional:
- * import a css file to use one of the humane-js styles for the notifications.
- * For the four default notification types to display correctly also set the
+/* import a humane-js style or a custom humane-js-based style.
+ * For the four default notification types to display correctly, also set the
  * corresponding classes in the plugin configuration (see example above).
  */
-// import "humane-js/themes/libnotify.css!";
+ import "humane-js/themes/libnotify.css!";
 
 @inject(Notification)
 export class SomeViewModel {
