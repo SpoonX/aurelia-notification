@@ -1,6 +1,6 @@
 # Docs for {`Notification`}
 
-```javascript
+```js
 import {Notification} from 'aurelia-notification';
 ```
 
@@ -10,11 +10,11 @@ import {Notification} from 'aurelia-notification';
 
 Set a new configuration based on current configuration. The same options as in the plugin configuration are available. The default configuration for this plugin is
 
-```javascript
+```js
 {
   translate: true,      // translate messages {true/false}.
                         // translate: true needs aurelia-i18n to be configured
-  defaults: {},         // defaults for all notificatons are humane-js defaults
+  defaults: {},         // defaults for all notifications are humane-js defaults
   notifications: {      // default methods definitions
     note: {},           // method name and their defaults
     success: {addnCls: 'success'},
@@ -38,7 +38,7 @@ The configuration object
 
 ### Examples
 
-```javascript
+```js
 this.notification.configure(
   notifications: {
     success: 'smallSuccess',   // converts to {addnCls: 'smallSuccess'}
@@ -66,7 +66,7 @@ The new baseCls
 
 ### Examples
 
-```javascript
+```js
 this.setBaseClass('humane-libnotify');
 ```
 
@@ -88,7 +88,7 @@ The new container
 
 ### Examples
 
-```javascript
+```js
 this.setContainer($('.content'));
 ```
 
@@ -112,7 +112,7 @@ Promise.resolve when finished
 
 ### Examples
 
-```javascript
+```js
 this.notification.log('Color will change when finished')
 .then(()=>document.body.style.backgroundColor='#a66000');
 ```
@@ -142,7 +142,7 @@ Promise.resolve when finished
 
 ### Examples
 
-```javascript
+```js
 this.notification.success('Yippy!!');
 this.notification.error(['Darn','Not available']);
 this.notification.info('Still there?', {waitForMove: true})
@@ -167,7 +167,7 @@ A .log(message\[, options[, defaults]]) function with defaults applied.
 
 ### Examples
 
-```javascript
+```js
 let mylog = this.notification.spawn({addCls:'alert'});
 
 mylog('This is a translated custom alert')
@@ -186,6 +186,6 @@ Promise.resolve when finished
 
 ### Examples
 
-```javascript
+```js
 this.notification.remove();
 ```

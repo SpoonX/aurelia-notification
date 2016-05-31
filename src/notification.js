@@ -91,7 +91,7 @@ export class Notification {
   }
 
   /**
-   * Define a non-enumerable property on the Notification.
+   * Define a non-enumerable property on the notification.
    *
    * @param {string}  property
    * @param {*}       value
