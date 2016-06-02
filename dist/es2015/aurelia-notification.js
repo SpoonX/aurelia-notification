@@ -110,7 +110,7 @@ export let Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly
   }
 
   log(message, options = {}, defaults = this.__config.defaults) {
-    if (this.translate()) {
+    if (this.translate(options, defaults)) {
       if (message instanceof Array) {
         message = message.map(item => this.i18n.tr(item));
       } else {

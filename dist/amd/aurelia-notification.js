@@ -160,7 +160,7 @@ define(['exports', 'extend', 'humane-js', 'aurelia-dependency-injection', 'aurel
       var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
       var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];
 
-      if (this.translate()) {
+      if (this.translate(options, defaults)) {
         if (message instanceof Array) {
           message = message.map(function (item) {
             return _this2.i18n.tr(item);
