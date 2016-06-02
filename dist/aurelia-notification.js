@@ -112,7 +112,7 @@ export class Notification {
   }
 
   /**
-   * Define a non-enumerable property on the Notification.
+   * Define a non-enumerable property on the notification.
    *
    * @param {string}  property
    * @param {*}       value
@@ -187,7 +187,7 @@ export class Notification {
    */
   @readonly()
   log(message, options = {}, defaults = this.__config.defaults) {
-    if (this.translate()) {
+    if (this.translate(options, defaults)) {
       if (message instanceof Array) {
         message = message.map(item=>this.i18n.tr(item));
       } else {

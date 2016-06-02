@@ -1,3 +1,12 @@
+<a name"1.0.0-rc3"></a>
+### 1.0.0-rc3 (2016-06-02)
+
+
+#### Bug Fixes
+
+* **notification:** notifications respect translate overwrite ([e8d0d515](https://github.com/SpoonX/aurelia-notification/commit/e8d0d515))
+
+
 <a name"1.0.0-rc2"></a>
 ### 1.0.0-rc2 (2016-04-30)
 

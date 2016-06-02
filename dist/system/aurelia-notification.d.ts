@@ -23,7 +23,7 @@ declare module 'aurelia-notification' {
          * @return {Promise}
          *
          */
-    note(message?: any, options?: any, defaults?: any): any;
+    note(message: any, options?: any, defaults?: any): any;
     
     /**
          * Notify 'success' (translated if applicable) using humane.log.
@@ -35,7 +35,7 @@ declare module 'aurelia-notification' {
          * @return {Promise}
          *
          */
-    success(message?: any, options?: any, defaults?: any): any;
+    success(message: any, options?: any, defaults?: any): any;
     
     /**
          * Notify 'error' (translated if applicable) using humane.log.
@@ -47,7 +47,7 @@ declare module 'aurelia-notification' {
          * @return {Promise}
          *
          */
-    error(message?: any, options?: any, defaults?: any): any;
+    error(message: any, options?: any, defaults?: any): any;
     
     /**
          * Notify 'info' (translated if applicable) using humane.log.
@@ -59,7 +59,7 @@ declare module 'aurelia-notification' {
          * @return {Promise}
          *
          */
-    info(message?: any, options?: any, defaults?: any): any;
+    info(message: any, options?: any, defaults?: any): any;
     
     /**
        * Construct.
@@ -70,10 +70,10 @@ declare module 'aurelia-notification' {
        *
        * @constructor
        */
-    constructor(config?: any, humane?: any, i18n?: any);
+    constructor(config: any, humane: any, i18n: any);
     
     /**
-       * Define a non-enumerable property on the Notification.
+       * Define a non-enumerable property on the notification.
        *
        * @param {string}  property
        * @param {*}       value
@@ -81,7 +81,7 @@ declare module 'aurelia-notification' {
        *
        * @return {Notification}
        */
-    define(property?: any, value?: any, writable?: any): any;
+    define(property: any, value: any, writable: any): any;
     
     /**
        * Set the container for the notifications
@@ -91,7 +91,7 @@ declare module 'aurelia-notification' {
        * @return {DOM.node}  [container]
        *
        */
-    setContainer(container?: any): any;
+    setContainer(container: any): any;
     
     /**
        * Set the base css class for the notifications
@@ -124,7 +124,7 @@ declare module 'aurelia-notification' {
        * @return {Promise}
        *
        */
-    log(message?: any, options?: any, defaults?: any): any;
+    log(message: any, options?: any, defaults?: any): any;
     
     /**
        * Set a custom shortcut for .log with defaults based on global defaults
@@ -135,7 +135,7 @@ declare module 'aurelia-notification' {
        * @return {function(message, options)}
        *
        */
-    spawn(addnDefaults?: any): any;
+    spawn(addnDefaults: any): any;
     
     /**
        * Force remove humane log
