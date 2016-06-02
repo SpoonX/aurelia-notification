@@ -94,7 +94,7 @@ this.setContainer($('.content'));
 
 ----------
 
-## .log(message\[, options[, defaults]])
+## .log(message[, options[, defaults]])
 
 Notify using humane.log. Depending on options and defaults, the message gets translated using i18n if available.
 
@@ -123,7 +123,7 @@ this.notification.log('Color will change when finished')
 
 ## .success(message[, options])
 
-## .error(message\[, options)
+## .error(message[, options)
 
 ## .info(message[, options])
 
@@ -163,7 +163,7 @@ Sets a shortcut for .log with defaults.
 
 ### Returns
 
-A .log(message\[, options[, defaults]]) function with defaults applied.
+A .log(message[, options[, defaults]]) function with defaults applied.
 
 ### Examples
 
