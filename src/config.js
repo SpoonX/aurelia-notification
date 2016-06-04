@@ -1,11 +1,25 @@
 import extend from 'extend';
 
+/**
+ * The Config class. Configures the notifications
+ */
 export class Config {
-  // translate on/off
+  /**
+   * Translation on or off
+   * @type {Boolean}
+   */
   translate = true
-  // defaults for all notifictaions
+
+  /**
+   * Defaults for all notifictaions
+   * @type {Object}
+   */
   defaults = {}
-  // notification names and their specific defaults
+
+  /**
+   * Notification names and their specific defaults
+   * @type {Object}
+   */
   notifications = {
     note: {},
     success: {addnCls: 'success'},
@@ -13,6 +27,16 @@ export class Config {
     info: {addnCls: 'info'}
   }
 
+  /**
+   * Configuration fanction for notifications
+   *
+   * @param  {[Object]} [incomming] The configuration object
+   * @param  {[Config]} [base]      The optional base config to use
+   *
+   * @return {Config}           itself
+   *
+   * @chainable
+   */
   configure(incomming = {}, base = this) {
     this.translate     = 'translate' in incomming ? incomming.translate : base.translate;
     this.defaults      = extend({}, base.defaults, incomming.defaults);

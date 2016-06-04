@@ -6,15 +6,18 @@ import {readonly} from 'javascript-decorators';
 import {DOM} from 'aurelia-pal';
 import extend from 'extend';
 
+/**
+ * The Notification class. Notify using humane-js with your custom names and defaults
+ */
 @inject(Config, Humane, I18N)
 export class Notification {
 
   /**
      * Notify 'note' (translated if applicable) using humane.log.
      *
-     * @param {String|String[]}  message|multi-line message.
-     * @param {{}}               [options] for this particular notification.
-     * @param {{}}               [defaults] for this type of notification.
+     * @type {String|String[]}  message|multi-line message.
+     * @type {{}}               [options] for this particular notification.
+     * @type {{}}               [defaults] for this type of notification.
      *
      * @return {Promise}
      *
@@ -24,9 +27,9 @@ export class Notification {
   /**
      * Notify 'success' (translated if applicable) using humane.log.
      *
-     * @param {String|String[]}  message|multi-line message.
-     * @param {{}}               [options] for this particular notification.
-     * @param {{}}               [defaults] for this type of notification.
+     * @type {String|String[]}  message|multi-line message.
+     * @type {{}}               [options] for this particular notification.
+     * @type {{}}               [defaults] for this type of notification.
      *
      * @return {Promise}
      *
@@ -36,9 +39,9 @@ export class Notification {
   /**
      * Notify 'error' (translated if applicable) using humane.log.
      *
-     * @param {String|String[]}  message|multi-line message.
-     * @param {{}}               [options] for this particular notification.
-     * @param {{}}               [defaults] for this type of notification.
+     * @type {String|String[]}  message|multi-line message.
+     * @type {{}}               [options] for this particular notification.
+     * @type {{}}               [defaults] for this type of notification.
      *
      * @return {Promise}
      *
@@ -48,9 +51,9 @@ export class Notification {
   /**
      * Notify 'info' (translated if applicable) using humane.log.
      *
-     * @param {String|String[]}  message|multi-line message.
-     * @param {{}}               [options] for this particular notification.
-     * @param {{}}               [defaults] for this type of notification.
+     * @type {String|String[]}  message|multi-line message.
+     * @type {{}}               [options] for this particular notification.
+     * @type {{}}               [defaults] for this type of notification.
      *
      * @return {Promise}
      *
@@ -59,11 +62,11 @@ export class Notification {
 
 
   /**
-   * Construct.
+   * Creates a Notification instance
    *
-   * @param {Config} config
-   * @param {Humane} humane
-   * @param {i18N}   I18N
+   * @param  {[Config]} config
+   * @param  {[Humane]} humane
+   * @param  {[I18N]}   i18N
    *
    * @constructor
    */
@@ -93,11 +96,13 @@ export class Notification {
   /**
    * Define a non-enumerable property on the notification.
    *
-   * @param {string}  property
-   * @param {*}       value
-   * @param {boolean} [writable]
+   * @type {string}  property
+   * @type {*}       value
+   * @type {boolean} [writable]
    *
    * @return {Notification}
+   *
+   * @readonly
    */
   @readonly()
   define(property, value, writable) {
@@ -113,10 +118,11 @@ export class Notification {
   /**
    * Set the container for the notifications
    *
-   * @param {[DOM.node]}  [container] for the notifications
+   * @type {[DOM.node]}  [container] for the notifications
    *
    * @return {DOM.node}  [container]
    *
+   * @readonly
    */
   @readonly()
   setContainer(container) {
@@ -128,10 +134,11 @@ export class Notification {
   /**
    * Set the base css class for the notifications
    *
-   * @param {[string]}  [base class] for the notifications (default=__config.defaults.baseCls)
+   * @type {[string]}  [base class] for the notifications (default=__config.defaults.baseCls)
    *
    * @return {string}  [base class]
    *
+   * @readonly
    */
   @readonly()
   setBaseCls(baseCls = this.__config.defaults.baseCls) {
@@ -142,11 +149,12 @@ export class Notification {
   /**
    * Check if translate is on with given options
    *
-   * @param {[{}]}  [options] for a particular notification.
-   * @param {[{}]}  [defaults] for a type of notifications.
+   * @type {[{}]}  [options] for a particular notification.
+   * @type {[{}]}  [defaults] for a type of notifications.
    *
    * @return {Boolean}
    *
+   * @readonly
    */
   @readonly()
   translate(options = {}, defaults = {}) {
@@ -157,12 +165,13 @@ export class Notification {
   /**
    * Notify (translated if applicable) using humane.log.
    *
-   * @param {String|String[]}  message|multi-line message.
-   * @param {{}}               [options] for this particular notification.
-   * @param {{}}               [defaults] for this type of notification.
+   * @type {String|String[]}  message|multi-line message.
+   * @type {{}}               [options] for this particular notification.
+   * @type {{}}               [defaults] for this type of notification.
    *
    * @return {Promise}
    *
+   * @readonly
    */
   @readonly()
   log(message, options = {}, defaults = this.__config.defaults) {
@@ -182,10 +191,12 @@ export class Notification {
   /**
    * Set a custom shortcut for .log with defaults based on global defaults
    *
-   * @param {String|{}}  [defaults] for this shortcut.
+   * @type {String|{}}  [defaults] for this shortcut.
    *                     A string evaluates to {'addnCls': defaults}
    *
    * @return {function(message, options)}
+   *
+   * @readonly
    *
    */
   @readonly()
@@ -203,6 +214,7 @@ export class Notification {
    *
    * @return {Promise}
    *
+   * @readonly
    */
   @readonly()
   remove() {
