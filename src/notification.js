@@ -15,9 +15,9 @@ export class Notification {
   /**
      * Notify 'note' (translated if applicable) using humane.log.
      *
-     * @type {String|String[]}  message|multi-line message.
-     * @type {{}}               [options] for this particular notification.
-     * @type {{}}               [defaults] for this type of notification.
+     * @param {String|String[]}  message|multi-line message.
+     * @param {{}}               [options] for this particular notification.
+     * @param {{}}               [defaults] for this type of notification.
      *
      * @return {Promise}
      *
@@ -27,9 +27,9 @@ export class Notification {
   /**
      * Notify 'success' (translated if applicable) using humane.log.
      *
-     * @type {String|String[]}  message|multi-line message.
-     * @type {{}}               [options] for this particular notification.
-     * @type {{}}               [defaults] for this type of notification.
+     * @param {String|String[]}  message|multi-line message.
+     * @param {{}}               [options] for this particular notification.
+     * @param {{}}               [defaults] for this type of notification.
      *
      * @return {Promise}
      *
@@ -39,9 +39,9 @@ export class Notification {
   /**
      * Notify 'error' (translated if applicable) using humane.log.
      *
-     * @type {String|String[]}  message|multi-line message.
-     * @type {{}}               [options] for this particular notification.
-     * @type {{}}               [defaults] for this type of notification.
+     * @param {String|String[]}  message|multi-line message.
+     * @param {{}}               [options] for this particular notification.
+     * @param {{}}               [defaults] for this type of notification.
      *
      * @return {Promise}
      *
@@ -51,9 +51,9 @@ export class Notification {
   /**
      * Notify 'info' (translated if applicable) using humane.log.
      *
-     * @type {String|String[]}  message|multi-line message.
-     * @type {{}}               [options] for this particular notification.
-     * @type {{}}               [defaults] for this type of notification.
+     * @param {String|String[]}  message|multi-line message.
+     * @param {{}}               [options] for this particular notification.
+     * @param {{}}               [defaults] for this type of notification.
      *
      * @return {Promise}
      *
@@ -96,9 +96,9 @@ export class Notification {
   /**
    * Define a non-enumerable property on the notification.
    *
-   * @type {string}  property
-   * @type {*}       value
-   * @type {boolean} [writable]
+   * @param {string}  property
+   * @param {*}       value
+   * @param {boolean} [writable]
    *
    * @return {Notification}
    *
@@ -118,7 +118,7 @@ export class Notification {
   /**
    * Set the container for the notifications
    *
-   * @type {[DOM.node]}  [container] for the notifications
+   * @param {[DOM.node]}  [container] for the notifications
    *
    * @return {DOM.node}  [container]
    *
@@ -134,7 +134,7 @@ export class Notification {
   /**
    * Set the base css class for the notifications
    *
-   * @type {[string]}  [base class] for the notifications (default=__config.defaults.baseCls)
+   * @param {[string]}  [base class] for the notifications (default=__config.defaults.baseCls)
    *
    * @return {string}  [base class]
    *
@@ -149,8 +149,8 @@ export class Notification {
   /**
    * Check if translate is on with given options
    *
-   * @type {[{}]}  [options] for a particular notification.
-   * @type {[{}]}  [defaults] for a type of notifications.
+   * @param {[{}]}  [options] for a particular notification.
+   * @param {[{}]}  [defaults] for a type of notifications.
    *
    * @return {Boolean}
    *
@@ -165,9 +165,9 @@ export class Notification {
   /**
    * Notify (translated if applicable) using humane.log.
    *
-   * @type {String|String[]}  message|multi-line message.
-   * @type {{}}               [options] for this particular notification.
-   * @type {{}}               [defaults] for this type of notification.
+   * @param {String|String[]}  message|multi-line message.
+   * @param {{}}               [options] for this particular notification.
+   * @param {{}}               [defaults] for this type of notification.
    *
    * @return {Promise}
    *
@@ -191,7 +191,7 @@ export class Notification {
   /**
    * Set a custom shortcut for .log with defaults based on global defaults
    *
-   * @type {String|{}}  [defaults] for this shortcut.
+   * @param {String|{}}  [defaults] for this shortcut.
    *                     A string evaluates to {'addnCls': defaults}
    *
    * @return {function(message, options)}

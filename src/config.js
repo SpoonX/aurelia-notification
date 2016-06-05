@@ -6,19 +6,19 @@ import extend from 'extend';
 export class Config {
   /**
    * Translation on or off
-   * @type {Boolean}
+   * @param {Boolean}
    */
   translate = true
 
   /**
    * Defaults for all notifictaions
-   * @type {Object}
+   * @param {Object}
    */
   defaults = {}
 
   /**
    * Notification names and their specific defaults
-   * @type {Object}
+   * @param {Object}
    */
   notifications = {
     note: {},
