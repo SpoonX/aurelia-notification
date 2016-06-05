@@ -6,6 +6,9 @@ import {readonly} from 'javascript-decorators';
 import {DOM} from 'aurelia-pal';
 import extend from 'extend';
 
+/**
+ * The Notification class. Notify using humane-js with your custom names and defaults
+ */
 @inject(Config, Humane, I18N)
 export class Notification {
 
@@ -59,11 +62,11 @@ export class Notification {
 
 
   /**
-   * Construct.
+   * Creates a Notification instance
    *
-   * @param {Config} config
-   * @param {Humane} humane
-   * @param {i18N}   I18N
+   * @param  {[Config]} config
+   * @param  {[Humane]} humane
+   * @param  {[I18N]}   i18N
    *
    * @constructor
    */
@@ -98,6 +101,8 @@ export class Notification {
    * @param {boolean} [writable]
    *
    * @return {Notification}
+   *
+   * @readonly
    */
   @readonly()
   define(property, value, writable) {
@@ -117,6 +122,7 @@ export class Notification {
    *
    * @return {DOM.node}  [container]
    *
+   * @readonly
    */
   @readonly()
   setContainer(container) {
@@ -132,6 +138,7 @@ export class Notification {
    *
    * @return {string}  [base class]
    *
+   * @readonly
    */
   @readonly()
   setBaseCls(baseCls = this.__config.defaults.baseCls) {
@@ -147,6 +154,7 @@ export class Notification {
    *
    * @return {Boolean}
    *
+   * @readonly
    */
   @readonly()
   translate(options = {}, defaults = {}) {
@@ -163,6 +171,7 @@ export class Notification {
    *
    * @return {Promise}
    *
+   * @readonly
    */
   @readonly()
   log(message, options = {}, defaults = this.__config.defaults) {
@@ -187,6 +196,8 @@ export class Notification {
    *
    * @return {function(message, options)}
    *
+   * @readonly
+   *
    */
   @readonly()
   spawn(addnDefaults) {
@@ -203,6 +214,7 @@ export class Notification {
    *
    * @return {Promise}
    *
+   * @readonly
    */
   @readonly()
   remove() {
