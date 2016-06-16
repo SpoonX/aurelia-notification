@@ -28,6 +28,24 @@ Run `jspm i aurelia-notification` from your project root.
 
 Either add your custom humane-js-based style or install `humane-js` with `jspm i npm:humane-js` to have some default styles to choose from. See the [humane-js custom-themes](https://github.com/wavded/humane-js#custom-themes) for instructions to make a custom style.
 
+If install breaks your application, try resolving jspm forks: 
+
+```
+$ jspm inspect --forks
+$ jspm resolve --only registry:package-name@version
+```
+
+E.g. 
+
+```
+$ jspm inspect --forks
+     Installed Forks
+
+         npm:aurelia-dependency-injection 1.0.0-beta.1.2.3 1.0.0-beta.2.1.0
+         
+$ jspm resolve --only npm:aurelia-dependency-injection@1.0.0-beta.2.1.0
+```
+
 ## Usage
 
 ### Configuring the plugin
