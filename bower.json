@@ -21,11 +21,11 @@
     "url": "https://github.com/SpoonX/aurelia-notification"
   },
   "dependencies": {
-      "aurelia-dependency-injection": "^1.0.0-beta.1.2.3",
-      "aurelia-i18n": "^0.5.3",
-      "aurelia-pal": "^1.0.0-beta.1.2.2",
-      "extend": "^3.0.0",
-      "humane-js": "^3.2.2",
-      "javascript-decorators": "^0.7.1"
-  }
+    "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
+    "aurelia-i18n": "^1.0.0-rc.1.0.0",
+    "aurelia-pal": "^1.0.0-rc.1.0.0",
+    "extend": "^3.0.0",
+    "humane-js": "^3.2.2",
+    "javascript-decorators": "^0.7.2"
+  },
 }
