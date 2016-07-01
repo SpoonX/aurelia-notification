@@ -1,6 +1,8 @@
 'use strict';
 
 System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia-i18n', 'javascript-decorators', 'aurelia-pal'], function (_export, _context) {
+  "use strict";
+
   var extend, Humane, inject, I18N, readonly, DOM, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _class2, _desc, _value, _class3, Config, Notification;
 
   function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
@@ -32,15 +34,7 @@ System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia
     return desc;
   }
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
-
-  function configure(aurelia, config) {
-    return config(aurelia.container.get(Config));
-  }
+  
 
   return {
     setters: [function (_extend) {
@@ -57,9 +51,15 @@ System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia
       DOM = _aureliaPal.DOM;
     }],
     execute: function () {
-      _export('Config', _export('Config', Config = function () {
+      function configure(aurelia, config) {
+        return config(aurelia.container.get(Config));
+      }
+
+      _export('configure', configure);
+
+      _export('Config', Config = function () {
         function Config() {
-          _classCallCheck(this, Config);
+          
 
           this.translate = true;
           this.defaults = {};
@@ -83,11 +83,11 @@ System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia
         };
 
         return Config;
-      }()));
+      }());
 
       _export('Config', Config);
 
-      _export('Notification', _export('Notification', Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec(_class2 = (_class3 = function () {
+      _export('Notification', Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec(_class2 = (_class3 = function () {
         Notification.prototype.note = function note(message) {
           var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
           var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];
@@ -111,7 +111,7 @@ System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia
         function Notification(config, humane, i18n) {
           var _this = this;
 
-          _classCallCheck(this, Notification);
+          
 
           this.define('__config', config).define('__humane', humane).define('__i18n', i18n);
 
@@ -201,15 +201,9 @@ System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia
         };
 
         return Notification;
-      }(), (_applyDecoratedDescriptor(_class3.prototype, 'define', [_dec2], Object.getOwnPropertyDescriptor(_class3.prototype, 'define'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'setContainer', [_dec3], Object.getOwnPropertyDescriptor(_class3.prototype, 'setContainer'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'setBaseCls', [_dec4], Object.getOwnPropertyDescriptor(_class3.prototype, 'setBaseCls'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'translate', [_dec5], Object.getOwnPropertyDescriptor(_class3.prototype, 'translate'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'log', [_dec6], Object.getOwnPropertyDescriptor(_class3.prototype, 'log'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'spawn', [_dec7], Object.getOwnPropertyDescriptor(_class3.prototype, 'spawn'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'remove', [_dec8], Object.getOwnPropertyDescriptor(_class3.prototype, 'remove'), _class3.prototype)), _class3)) || _class2)));
+      }(), (_applyDecoratedDescriptor(_class3.prototype, 'define', [_dec2], Object.getOwnPropertyDescriptor(_class3.prototype, 'define'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'setContainer', [_dec3], Object.getOwnPropertyDescriptor(_class3.prototype, 'setContainer'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'setBaseCls', [_dec4], Object.getOwnPropertyDescriptor(_class3.prototype, 'setBaseCls'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'translate', [_dec5], Object.getOwnPropertyDescriptor(_class3.prototype, 'translate'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'log', [_dec6], Object.getOwnPropertyDescriptor(_class3.prototype, 'log'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'spawn', [_dec7], Object.getOwnPropertyDescriptor(_class3.prototype, 'spawn'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'remove', [_dec8], Object.getOwnPropertyDescriptor(_class3.prototype, 'remove'), _class3.prototype)), _class3)) || _class2));
 
       _export('Notification', Notification);
-
-      _export('Config', Config);
-
-      _export('Notification', Notification);
-
-      _export('configure', configure);
     }
   };
 });

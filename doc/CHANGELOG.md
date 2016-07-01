@@ -1,3 +1,7 @@
+<a name="1.0.0-rc4"></a>
+## [1.0.0-rc4](https://github.com/SpoonX/aurelia-notification/compare/1.0.0-rc1...v1.0.0-rc4) (2016-07-01)
+
+
 <a name"1.0.0-rc3"></a>
 ### 1.0.0-rc3 (2016-06-02)
 

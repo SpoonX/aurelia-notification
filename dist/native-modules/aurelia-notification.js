@@ -1,31 +1,4 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Notification = exports.Config = undefined;
-
 var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _class2, _desc, _value, _class3;
-
-exports.configure = configure;
-
-var _extend = require('extend');
-
-var _extend2 = _interopRequireDefault(_extend);
-
-var _humaneJs = require('humane-js');
-
-var _humaneJs2 = _interopRequireDefault(_humaneJs);
-
-var _aureliaDependencyInjection = require('aurelia-dependency-injection');
-
-var _aureliaI18n = require('aurelia-i18n');
-
-var _javascriptDecorators = require('javascript-decorators');
-
-var _aureliaPal = require('aurelia-pal');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
   var desc = {};
@@ -58,11 +31,18 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
 
 
 
-function configure(aurelia, config) {
+import extend from 'extend';
+import Humane from 'humane-js';
+import { inject } from 'aurelia-dependency-injection';
+import { I18N } from 'aurelia-i18n';
+import { readonly } from 'javascript-decorators';
+import { DOM } from 'aurelia-pal';
+
+export function configure(aurelia, config) {
   return config(aurelia.container.get(Config));
 }
 
-var Config = exports.Config = function () {
+export var Config = function () {
   function Config() {
     
 
@@ -81,8 +61,8 @@ var Config = exports.Config = function () {
     var base = arguments.length <= 1 || arguments[1] === undefined ? this : arguments[1];
 
     this.translate = 'translate' in incomming ? incomming.translate : base.translate;
-    this.defaults = (0, _extend2.default)({}, base.defaults, incomming.defaults);
-    this.notifications = (0, _extend2.default)({}, base.notifications, incomming.notifications);
+    this.defaults = extend({}, base.defaults, incomming.defaults);
+    this.notifications = extend({}, base.notifications, incomming.notifications);
 
     return this;
   };
@@ -90,7 +70,7 @@ var Config = exports.Config = function () {
   return Config;
 }();
 
-var Notification = exports.Notification = (_dec = (0, _aureliaDependencyInjection.inject)(Config, _humaneJs2.default, _aureliaI18n.I18N), _dec2 = (0, _javascriptDecorators.readonly)(), _dec3 = (0, _javascriptDecorators.readonly)(), _dec4 = (0, _javascriptDecorators.readonly)(), _dec5 = (0, _javascriptDecorators.readonly)(), _dec6 = (0, _javascriptDecorators.readonly)(), _dec7 = (0, _javascriptDecorators.readonly)(), _dec8 = (0, _javascriptDecorators.readonly)(), _dec(_class2 = (_class3 = function () {
+export var Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec(_class2 = (_class3 = function () {
   Notification.prototype.note = function note(message) {
     var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
     var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];
@@ -127,9 +107,9 @@ var Notification = exports.Notification = (_dec = (0, _aureliaDependencyInjectio
     this.setContainer();
     var aureliaComposedListener = function aureliaComposedListener() {
       _this.setContainer();
-      _aureliaPal.DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
+      DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
     };
-    _aureliaPal.DOM.addEventListener('aurelia-composed', aureliaComposedListener);
+    DOM.addEventListener('aurelia-composed', aureliaComposedListener);
   }
 
   Notification.prototype.define = function define(property, value, writable) {
@@ -143,7 +123,7 @@ var Notification = exports.Notification = (_dec = (0, _aureliaDependencyInjectio
   };
 
   Notification.prototype.setContainer = function setContainer(container) {
-    _aureliaPal.DOM.appendNode(this.__humane.el, container);
+    DOM.appendNode(this.__humane.el, container);
     this.__humane.container = this.__humane.el.parentNode;
     return this.__humane.container;
   };
@@ -159,7 +139,7 @@ var Notification = exports.Notification = (_dec = (0, _aureliaDependencyInjectio
     var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
     var defaults = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
-    var joined = (0, _extend2.default)({}, this.__config, defaults, options);
+    var joined = extend({}, this.__config, defaults, options);
     return joined.translate;
   };
 
@@ -188,7 +168,7 @@ var Notification = exports.Notification = (_dec = (0, _aureliaDependencyInjectio
     var _this3 = this;
 
     addnDefaults = typeof addnDefaults === 'string' ? { 'addnCls': addnDefaults } : addnDefaults;
-    var defaults = (0, _extend2.default)({}, this.__config.defaults, addnDefaults);
+    var defaults = extend({}, this.__config.defaults, addnDefaults);
 
     return function (message, options) {
       return _this3.log(message, options, defaults);

@@ -36,6 +36,10 @@ import { I18N } from 'aurelia-i18n';
 import { readonly } from 'javascript-decorators';
 import { DOM } from 'aurelia-pal';
 
+export function configure(aurelia, config) {
+  return config(aurelia.container.get(Config));
+}
+
 export let Config = class Config {
   constructor() {
     this.translate = true;
@@ -138,9 +142,3 @@ export let Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly
     });
   }
 }, (_applyDecoratedDescriptor(_class3.prototype, 'define', [_dec2], Object.getOwnPropertyDescriptor(_class3.prototype, 'define'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'setContainer', [_dec3], Object.getOwnPropertyDescriptor(_class3.prototype, 'setContainer'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'setBaseCls', [_dec4], Object.getOwnPropertyDescriptor(_class3.prototype, 'setBaseCls'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'translate', [_dec5], Object.getOwnPropertyDescriptor(_class3.prototype, 'translate'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'log', [_dec6], Object.getOwnPropertyDescriptor(_class3.prototype, 'log'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'spawn', [_dec7], Object.getOwnPropertyDescriptor(_class3.prototype, 'spawn'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'remove', [_dec8], Object.getOwnPropertyDescriptor(_class3.prototype, 'remove'), _class3.prototype)), _class3)) || _class2);
-
-function configure(aurelia, config) {
-  return config(aurelia.container.get(Config));
-}
-
-export { Config, Notification, configure };
