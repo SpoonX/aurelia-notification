@@ -24,7 +24,9 @@ We've simplified installation and usage! This plugin should now be installed usi
 
 ### Aureli-Cli
 
-Run `npm i aurelia-notification` from your project root and add `aurelia-notification` to the `build/bundles/dependencies` section of `aurelia-project/aurelia.json`.
+Run `npm i aurelia-notification --save` from your project root.
+
+Add `aurelia-notification` to the `build/bundles/dependencies` section of `aurelia-project/aurelia.json`.
 
 ### Jspm
 
@@ -49,7 +51,9 @@ jspm resolve --only npm:aurelia-dependency-injection@1.0.0-beta.2.1.0
 
 ### Webpack
 
-Run `npm i aurelia-notification` from your project root.
+Run `npm i aurelia-notification --save` from your project root.
+
+Add `'aurelia-notification'` in the `coreBundles.aurelia section` of your `webpack.config.js`.
 
 ### Typescript
 
