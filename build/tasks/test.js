@@ -16,6 +16,7 @@ gulp.task('test', function (done) {
  */
 gulp.task('tdd', function (done) {
   new Karma({
+    browsers: ['Chrome'],
     configFile: __dirname + '/../../karma.conf.js'
   }, done).start();
 });
