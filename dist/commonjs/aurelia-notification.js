@@ -21,8 +21,6 @@ var _aureliaDependencyInjection = require('aurelia-dependency-injection');
 
 var _aureliaI18n = require('aurelia-i18n');
 
-var _javascriptDecorators = require('javascript-decorators');
-
 var _aureliaPal = require('aurelia-pal');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -90,7 +88,14 @@ var Config = exports.Config = function () {
   return Config;
 }();
 
-var Notification = exports.Notification = (_dec = (0, _aureliaDependencyInjection.inject)(Config, _humaneJs2.default, _aureliaI18n.I18N), _dec2 = (0, _javascriptDecorators.readonly)(), _dec3 = (0, _javascriptDecorators.readonly)(), _dec4 = (0, _javascriptDecorators.readonly)(), _dec5 = (0, _javascriptDecorators.readonly)(), _dec6 = (0, _javascriptDecorators.readonly)(), _dec7 = (0, _javascriptDecorators.readonly)(), _dec8 = (0, _javascriptDecorators.readonly)(), _dec(_class2 = (_class3 = function () {
+var readonly = function readonly() {
+  return function (key, target, descriptor) {
+    descriptor.writable = false;
+    return descriptor;
+  };
+};
+
+var Notification = exports.Notification = (_dec = (0, _aureliaDependencyInjection.inject)(Config, _humaneJs2.default, _aureliaI18n.I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec(_class2 = (_class3 = function () {
   Notification.prototype.note = function note(message) {
     var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
     var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];

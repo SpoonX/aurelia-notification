@@ -33,7 +33,6 @@ import extend from 'extend';
 import Humane from 'humane-js';
 import { inject } from 'aurelia-dependency-injection';
 import { I18N } from 'aurelia-i18n';
-import { readonly } from 'javascript-decorators';
 import { DOM } from 'aurelia-pal';
 
 export function configure(aurelia, config) {
@@ -59,6 +58,13 @@ export let Config = class Config {
 
     return this;
   }
+};
+
+const readonly = function () {
+  return function (key, target, descriptor) {
+    descriptor.writable = false;
+    return descriptor;
+  };
 };
 
 export let Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec(_class2 = (_class3 = class Notification {

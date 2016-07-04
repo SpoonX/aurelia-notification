@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia-i18n', 'javascript-decorators', 'aurelia-pal'], function (_export, _context) {
+System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia-i18n', 'aurelia-pal'], function (_export, _context) {
   "use strict";
 
-  var extend, Humane, inject, I18N, readonly, DOM, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _class2, _desc, _value, _class3, Config, Notification;
+  var extend, Humane, inject, I18N, DOM, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _class2, _desc, _value, _class3, Config, readonly, Notification;
 
   function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
     var desc = {};
@@ -45,8 +45,6 @@ System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia
       inject = _aureliaDependencyInjection.inject;
     }, function (_aureliaI18n) {
       I18N = _aureliaI18n.I18N;
-    }, function (_javascriptDecorators) {
-      readonly = _javascriptDecorators.readonly;
     }, function (_aureliaPal) {
       DOM = _aureliaPal.DOM;
     }],
@@ -86,6 +84,13 @@ System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia
       }());
 
       _export('Config', Config);
+
+      readonly = function readonly() {
+        return function (key, target, descriptor) {
+          descriptor.writable = false;
+          return descriptor;
+        };
+      };
 
       _export('Notification', Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec(_class2 = (_class3 = function () {
         Notification.prototype.note = function note(message) {

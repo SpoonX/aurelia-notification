@@ -1,4 +1,4 @@
-define(['exports', 'extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia-i18n', 'javascript-decorators', 'aurelia-pal'], function (exports, _extend, _humaneJs, _aureliaDependencyInjection, _aureliaI18n, _javascriptDecorators, _aureliaPal) {
+define(['exports', 'extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia-i18n', 'aurelia-pal'], function (exports, _extend, _humaneJs, _aureliaDependencyInjection, _aureliaI18n, _aureliaPal) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -82,7 +82,14 @@ define(['exports', 'extend', 'humane-js', 'aurelia-dependency-injection', 'aurel
     return Config;
   }();
 
-  var Notification = exports.Notification = (_dec = (0, _aureliaDependencyInjection.inject)(Config, _humaneJs2.default, _aureliaI18n.I18N), _dec2 = (0, _javascriptDecorators.readonly)(), _dec3 = (0, _javascriptDecorators.readonly)(), _dec4 = (0, _javascriptDecorators.readonly)(), _dec5 = (0, _javascriptDecorators.readonly)(), _dec6 = (0, _javascriptDecorators.readonly)(), _dec7 = (0, _javascriptDecorators.readonly)(), _dec8 = (0, _javascriptDecorators.readonly)(), _dec(_class2 = (_class3 = function () {
+  var readonly = function readonly() {
+    return function (key, target, descriptor) {
+      descriptor.writable = false;
+      return descriptor;
+    };
+  };
+
+  var Notification = exports.Notification = (_dec = (0, _aureliaDependencyInjection.inject)(Config, _humaneJs2.default, _aureliaI18n.I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec(_class2 = (_class3 = function () {
     Notification.prototype.note = function note(message) {
       var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
       var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];

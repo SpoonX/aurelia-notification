@@ -1,17 +1,7 @@
-import extend from 'extend';
-import Humane from 'humane-js';
-import {
-  inject
-} from 'aurelia-dependency-injection';
-import {
-  I18N
-} from 'aurelia-i18n';
-import {
-  readonly
-} from 'javascript-decorators';
-import {
-  DOM
-} from 'aurelia-pal';
+import {inject} from 'aurelia-dependency-injection';
+import {I18N} from 'aurelia-i18n';
+import {DOM} from 'aurelia-pal';
+
 export declare function configure(aurelia?: any, config?: any): any;
 
 /**
