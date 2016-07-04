@@ -16,7 +16,6 @@ System.config({
     "extend": "npm:extend@3.0.0",
     "humane-js": "npm:humane-js@3.2.2",
     "i18next-xhr-backend": "npm:i18next-xhr-backend@0.6.0",
-    "javascript-decorators": "npm:javascript-decorators@0.7.2",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
     },
@@ -172,9 +171,6 @@ System.config({
       "isarray": "npm:isarray@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:deepcopy@0.6.3": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0"
-    },
     "npm:i18next@3.3.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
@@ -183,10 +179,6 @@ System.config({
     },
     "npm:intl@1.2.4": {
       "process": "github:jspm/nodelibs-process@0.1.2"
-    },
-    "npm:javascript-decorators@0.7.2": {
-      "deep-equal": "npm:deep-equal@1.0.1",
-      "deepcopy": "npm:deepcopy@0.6.3"
     },
     "npm:process@0.11.5": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",

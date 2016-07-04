@@ -37,16 +37,14 @@
       "aurelia-i18n": "^1.0.0-rc.1.0.0",
       "aurelia-pal": "^1.0.0-rc.1.0.0",
       "extend": "^3.0.0",
-      "humane-js": "^3.2.2",
-      "javascript-decorators": "^0.7.2"
+      "humane-js": "^3.2.2"
     },
     "peerDependencies": {
       "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
       "aurelia-i18n": "^1.0.0-rc.1.0.0",
       "aurelia-pal": "^1.0.0-rc.1.0.0",
       "extend": "^3.0.0",
-      "humane-js": "^3.2.2",
-      "javascript-decorators": "^0.7.2"
+      "humane-js": "^3.2.2"
     },
     "devDependencies": {
       "aurelia-bootstrapper": "^1.0.0-rc.1.0.1",
@@ -60,8 +58,7 @@
     "aurelia-i18n": "^1.0.0-rc.1.0.0",
     "aurelia-pal": "^1.0.0-rc.1.0.0",
     "extend": "^3.0.0",
-    "humane-js": "^3.2.2",
-    "javascript-decorators": "^0.7.2"
+    "humane-js": "^3.2.2"
   },
   "devDependencies": {
     "aurelia-tools": "^0.2.3",
