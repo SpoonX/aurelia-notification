@@ -6,10 +6,8 @@ import {DOM} from 'aurelia-pal';
 import extend from 'extend';
 
 // from https://github.com/AvraamMavridis/javascript-decorators/
-const readonly = function ()
-{
-  return function ( key, target, descriptor )
-  {
+const readonly = function() {
+  return function( key, target, descriptor ) {
     descriptor.writable = false;
     return descriptor;
   };
