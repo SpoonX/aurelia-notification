@@ -26,7 +26,17 @@ We've simplified installation and usage! This plugin should now be installed usi
 
 Run `npm i aurelia-notification --save` from your project root.
 
-Add `aurelia-notification` to the `build/bundles/dependencies` section of `aurelia-project/aurelia.json`.
+Aurelia-notification makes use of `extends` and `humane-js`. So, add following to the `build/bundles/dependencies` section of `aurelia-project/aurelia.json`.
+
+```js
+"dependencies": [
+  // ...
+  'extends',
+  'humane-js',
+  'aurelia-notification',
+  // ...
+],
+```
 
 ### Jspm
 
