@@ -33,14 +33,14 @@
       "dist": "dist/amd"
     },
     "dependencies": {
-      "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
+      "aurelia-dependency-injection": "^1.0.0-rc.1.0.1",
       "aurelia-i18n": "^1.0.0-rc.1.0.0",
       "aurelia-pal": "^1.0.0-rc.1.0.0",
       "extend": "^3.0.0",
       "humane-js": "^3.2.2"
     },
     "peerDependencies": {
-      "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
+      "aurelia-dependency-injection": "^1.0.0-rc.1.0.1",
       "aurelia-i18n": "^1.0.0-rc.1.0.0",
       "aurelia-pal": "^1.0.0-rc.1.0.0",
       "extend": "^3.0.0",
@@ -48,13 +48,13 @@
     },
     "devDependencies": {
       "aurelia-bootstrapper": "^1.0.0-rc.1.0.1",
-      "aurelia-pal-browser": "^1.0.0-rc.1.0.0",
+      "aurelia-pal-browser": "^1.0.0-rc.1.0.1",
       "aurelia-polyfills": "^1.0.0-rc.1.0.0",
       "i18next-xhr-backend": "^0.6.0"
     }
   },
   "dependencies": {
-    "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
+    "aurelia-dependency-injection": "^1.0.0-rc.1.0.1",
     "aurelia-i18n": "^1.0.0-rc.1.0.0",
     "aurelia-pal": "^1.0.0-rc.1.0.0",
     "extend": "^3.0.0",
@@ -78,8 +78,10 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-bump": "^2.1.0",
+    "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.0",
     "gulp-conventional-changelog": "^1.1.0",
+    "gulp-empty": "^0.1.1",
     "gulp-eslint": "^2.0.0",
     "gulp-ignore": "^2.0.1",
     "gulp-insert": "^0.5.0",
