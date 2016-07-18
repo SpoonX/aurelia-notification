@@ -42,6 +42,8 @@ Aurelia-notification makes use of `extends` and `humane-js`. So, add following t
 
 Run `jspm i aurelia-notification`
 
+Add `aurelia-notification` to the `bundles.dist.aurelia.includes` section of `build/bundles.js`.
+
 If the installation results in having forks, try resolving them by running:
 
 ```sh
@@ -67,7 +69,7 @@ Add `'aurelia-notification'` in the `coreBundles.aurelia section` of your `webpa
 
 ### Typescript
 
-Add to your `typings.json`
+Npm-based installations pick up the typings automatically. For Jspm-based installations, add to your `typings.json`:
 
 ```js
 "aurelia-notification": "github:spoonx/aurelia-notification",

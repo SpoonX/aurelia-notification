@@ -16,7 +16,7 @@
   "license": "MIT",
   "author": "RWOverdijk <wesley@spoonx.nl> (http://spoonx.nl/)",
   "main": "dist/commonjs/aurelia-notification.js",
-  "typings": "dist/notification.d.ts",
+  "typings": "dist/aurelia-notification.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/SpoonX/aurelia-notification"
