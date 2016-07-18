@@ -21,7 +21,7 @@ var paths = {
   ignore: [],
   useTypeScriptForDTS: false,
   importsToAdd: [],
-  importsToIgnoreForDts: ['humane-js', 'extend'], // imports that are only used internally. no need to d.ts export them
+  importsToIgnoreForDts: ['extend', 'humane-js'], // imports that are only used internally. no need to d.ts export them
   jsResources: [], // js to transpile, but not be concated and keeping their relative path
   resources: appRoot + '{**/*.css,**/*.html}',
   sort: true,
@@ -29,7 +29,7 @@ var paths = {
 };
 
 // files to be traspiled (and concated if selected)
-paths.mainSource = [paths.source];
+paths.mainSource = [paths.source].concat(paths.jsResources.map(function(resource) {return '!' + resource;}));
 // files to be linted
 paths.lintSource = paths.source;
 

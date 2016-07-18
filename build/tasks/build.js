@@ -10,7 +10,6 @@ var concat = require('gulp-concat');
 var insert = require('gulp-insert');
 var rename = require('gulp-rename');
 var clean = require('gulp-clean');
-var dummy = require('gulp-empty');
 var tools = require('aurelia-tools');
 var ts = require('gulp-typescript');
 var gutil = require('gulp-util');
@@ -42,6 +41,10 @@ gulp.task('build-index', ['build-resources-index'], function() {
     });
   }
 
+  if (!paths.concat) {
+    return src.pipe(gulp.dest(paths.output));
+  }
+
   return src
     .pipe(through2.obj(function(file, enc, callback) {
       if (!file) return callback();
@@ -49,7 +52,7 @@ gulp.task('build-index', ['build-resources-index'], function() {
       this.push(file);
       return callback();
     }))
-    .pipe(paths.concat ? concat(jsName) : dummy())
+    .pipe(concat(jsName))
     .pipe(insert.transform(function(contents) {
       return tools.createImportBlock(importsToAdd) + contents;
     }))
@@ -57,7 +60,7 @@ gulp.task('build-index', ['build-resources-index'], function() {
 });
 
 gulp.task('build-resources-index', ['copy-resources'], function() {
-  var src = gulp.src(paths.jsResources);
+  var src = gulp.src(paths.jsResources, {base: paths.root});
 
   if (paths.ignore) {
     paths.ignore.forEach(function(filename){
