@@ -1,4 +1,5 @@
-import {Config, Notification} from '../src/aurelia-notification';
+import {Config} from '../src/config';
+import {Notification} from '../src/notification';
 import {StageComponent} from './component-tester';
 import {Container} from 'aurelia-dependency-injection';
 import {DOM} from 'aurelia-pal';

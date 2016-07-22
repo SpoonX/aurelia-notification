@@ -33,7 +33,6 @@ import extend from 'extend';
 import Humane from 'humane-js';
 import { inject } from 'aurelia-dependency-injection';
 import { I18N } from 'aurelia-i18n';
-import { readonly } from 'javascript-decorators';
 import { DOM } from 'aurelia-pal';
 
 export let Config = class Config {
@@ -55,6 +54,17 @@ export let Config = class Config {
 
     return this;
   }
+};
+
+export function configure(aurelia, config) {
+  return config(aurelia.container.get(Config));
+}
+
+const readonly = function () {
+  return function (key, target, descriptor) {
+    descriptor.writable = false;
+    return descriptor;
+  };
 };
 
 export let Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec(_class2 = (_class3 = class Notification {
@@ -138,9 +148,3 @@ export let Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly
     });
   }
 }, (_applyDecoratedDescriptor(_class3.prototype, 'define', [_dec2], Object.getOwnPropertyDescriptor(_class3.prototype, 'define'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'setContainer', [_dec3], Object.getOwnPropertyDescriptor(_class3.prototype, 'setContainer'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'setBaseCls', [_dec4], Object.getOwnPropertyDescriptor(_class3.prototype, 'setBaseCls'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'translate', [_dec5], Object.getOwnPropertyDescriptor(_class3.prototype, 'translate'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'log', [_dec6], Object.getOwnPropertyDescriptor(_class3.prototype, 'log'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'spawn', [_dec7], Object.getOwnPropertyDescriptor(_class3.prototype, 'spawn'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'remove', [_dec8], Object.getOwnPropertyDescriptor(_class3.prototype, 'remove'), _class3.prototype)), _class3)) || _class2);
-
-function configure(aurelia, config) {
-  return config(aurelia.container.get(Config));
-}
-
-export { Config, Notification, configure };

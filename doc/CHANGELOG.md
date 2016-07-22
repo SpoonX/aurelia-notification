@@ -1,3 +1,23 @@
+<a name="1.0.0-rc5"></a>
+## [1.0.0-rc5](https://github.com/SpoonX/aurelia-notification/compare/1.0.0-rc1...v1.0.0-rc5) (2016-07-22)
+
+
+### Bug Fixes
+
+* **notification:** notifications respect translate overwrite ([e8d0d51](https://github.com/SpoonX/aurelia-notification/commit/e8d0d51))
+
+
+### Features
+
+* **notification:** improved generated typings ([25f8548](https://github.com/SpoonX/aurelia-notification/commit/25f8548))
+* **project:** add gulp fixup-dts. removes unneeded/problematic external imports from d.ts ([961955a](https://github.com/SpoonX/aurelia-notification/commit/961955a))
+
+
+
+<a name="1.0.0-rc4"></a>
+## [1.0.0-rc4](https://github.com/SpoonX/aurelia-notification/compare/1.0.0-rc1...v1.0.0-rc4) (2016-07-01)
+
+
 <a name"1.0.0-rc3"></a>
 ### 1.0.0-rc3 (2016-06-02)
 

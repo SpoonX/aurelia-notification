@@ -1,10 +1,11 @@
-define(['exports', 'extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia-i18n', 'javascript-decorators', 'aurelia-pal'], function (exports, _extend, _humaneJs, _aureliaDependencyInjection, _aureliaI18n, _javascriptDecorators, _aureliaPal) {
+define(['exports', 'extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia-i18n', 'aurelia-pal'], function (exports, _extend, _humaneJs, _aureliaDependencyInjection, _aureliaI18n, _aureliaPal) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.configure = exports.Notification = exports.Config = undefined;
+  exports.Notification = exports.Config = undefined;
+  exports.configure = configure;
 
   var _extend2 = _interopRequireDefault(_extend);
 
@@ -47,15 +48,11 @@ define(['exports', 'extend', 'humane-js', 'aurelia-dependency-injection', 'aurel
 
   var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _class2, _desc, _value, _class3;
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+  
 
   var Config = exports.Config = function () {
     function Config() {
-      _classCallCheck(this, Config);
+      
 
       this.translate = true;
       this.defaults = {};
@@ -81,7 +78,18 @@ define(['exports', 'extend', 'humane-js', 'aurelia-dependency-injection', 'aurel
     return Config;
   }();
 
-  var Notification = exports.Notification = (_dec = (0, _aureliaDependencyInjection.inject)(Config, _humaneJs2.default, _aureliaI18n.I18N), _dec2 = (0, _javascriptDecorators.readonly)(), _dec3 = (0, _javascriptDecorators.readonly)(), _dec4 = (0, _javascriptDecorators.readonly)(), _dec5 = (0, _javascriptDecorators.readonly)(), _dec6 = (0, _javascriptDecorators.readonly)(), _dec7 = (0, _javascriptDecorators.readonly)(), _dec8 = (0, _javascriptDecorators.readonly)(), _dec(_class2 = (_class3 = function () {
+  function configure(aurelia, config) {
+    return config(aurelia.container.get(Config));
+  }
+
+  var readonly = function readonly() {
+    return function (key, target, descriptor) {
+      descriptor.writable = false;
+      return descriptor;
+    };
+  };
+
+  var Notification = exports.Notification = (_dec = (0, _aureliaDependencyInjection.inject)(Config, _humaneJs2.default, _aureliaI18n.I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec(_class2 = (_class3 = function () {
     Notification.prototype.note = function note(message) {
       var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
       var defaults = arguments.length <= 2 || arguments[2] === undefined ? this.__config.defaults : arguments[2];
@@ -105,7 +113,7 @@ define(['exports', 'extend', 'humane-js', 'aurelia-dependency-injection', 'aurel
     function Notification(config, humane, i18n) {
       var _this = this;
 
-      _classCallCheck(this, Notification);
+      
 
       this.define('__config', config).define('__humane', humane).define('__i18n', i18n);
 
@@ -196,13 +204,4 @@ define(['exports', 'extend', 'humane-js', 'aurelia-dependency-injection', 'aurel
 
     return Notification;
   }(), (_applyDecoratedDescriptor(_class3.prototype, 'define', [_dec2], Object.getOwnPropertyDescriptor(_class3.prototype, 'define'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'setContainer', [_dec3], Object.getOwnPropertyDescriptor(_class3.prototype, 'setContainer'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'setBaseCls', [_dec4], Object.getOwnPropertyDescriptor(_class3.prototype, 'setBaseCls'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'translate', [_dec5], Object.getOwnPropertyDescriptor(_class3.prototype, 'translate'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'log', [_dec6], Object.getOwnPropertyDescriptor(_class3.prototype, 'log'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'spawn', [_dec7], Object.getOwnPropertyDescriptor(_class3.prototype, 'spawn'), _class3.prototype), _applyDecoratedDescriptor(_class3.prototype, 'remove', [_dec8], Object.getOwnPropertyDescriptor(_class3.prototype, 'remove'), _class3.prototype)), _class3)) || _class2);
-
-
-  function configure(aurelia, config) {
-    return config(aurelia.container.get(Config));
-  }
-
-  exports.Config = Config;
-  exports.Notification = Notification;
-  exports.configure = configure;
 });

@@ -1,4 +1,4 @@
-import {Config} from '../src/aurelia-notification';
+import {Config} from '../src/config';
 import extend from 'extend';
 
 describe('Config', function() {

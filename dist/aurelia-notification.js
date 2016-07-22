@@ -2,15 +2,28 @@ import extend from 'extend';
 import Humane from 'humane-js';
 import {inject} from 'aurelia-dependency-injection';
 import {I18N} from 'aurelia-i18n';
-import {readonly} from 'javascript-decorators';
 import {DOM} from 'aurelia-pal';
 
+/**
+ * The Config class. Configures the notifications
+ */
 export class Config {
-  // translate on/off
+  /**
+   * Translation on or off
+   * @param {Boolean}
+   */
   translate = true
-  // defaults for all notifictaions
+
+  /**
+   * Defaults for all notifictaions
+   * @param {Object}
+   */
   defaults = {}
-  // notification names and their specific defaults
+
+  /**
+   * Notification names and their specific defaults
+   * @param {Object}
+   */
   notifications = {
     note: {},
     success: {addnCls: 'success'},
@@ -18,6 +31,16 @@ export class Config {
     info: {addnCls: 'info'}
   }
 
+  /**
+   * Configuration fanction for notifications
+   *
+   * @param  {[Object]} [incomming] The configuration object
+   * @param  {[Config]} [base]      The optional base config to use
+   *
+   * @return {Config}           itself
+   *
+   * @chainable
+   */
   configure(incomming = {}, base = this) {
     this.translate     = 'translate' in incomming ? incomming.translate : base.translate;
     this.defaults      = extend({}, base.defaults, incomming.defaults);
@@ -27,6 +50,21 @@ export class Config {
   }
 }
 
+export function configure(aurelia, config) {
+  return config(aurelia.container.get(Config));
+}
+
+// from https://github.com/AvraamMavridis/javascript-decorators/
+const readonly = function() {
+  return function( key, target, descriptor ) {
+    descriptor.writable = false;
+    return descriptor;
+  };
+};
+
+/**
+ * The Notification class. Notify using humane-js with your custom names and defaults
+ */
 @inject(Config, Humane, I18N)
 export class Notification {
 
@@ -80,11 +118,11 @@ export class Notification {
 
 
   /**
-   * Construct.
+   * Creates a Notification instance
    *
-   * @param {Config} config
-   * @param {Humane} humane
-   * @param {i18N}   I18N
+   * @param  {[Config]} config
+   * @param  {[Humane]} humane
+   * @param  {[I18N]}   i18N
    *
    * @constructor
    */
@@ -119,6 +157,8 @@ export class Notification {
    * @param {boolean} [writable]
    *
    * @return {Notification}
+   *
+   * @readonly
    */
   @readonly()
   define(property, value, writable) {
@@ -138,6 +178,7 @@ export class Notification {
    *
    * @return {DOM.node}  [container]
    *
+   * @readonly
    */
   @readonly()
   setContainer(container) {
@@ -153,6 +194,7 @@ export class Notification {
    *
    * @return {string}  [base class]
    *
+   * @readonly
    */
   @readonly()
   setBaseCls(baseCls = this.__config.defaults.baseCls) {
@@ -168,6 +210,7 @@ export class Notification {
    *
    * @return {Boolean}
    *
+   * @readonly
    */
   @readonly()
   translate(options = {}, defaults = {}) {
@@ -184,6 +227,7 @@ export class Notification {
    *
    * @return {Promise}
    *
+   * @readonly
    */
   @readonly()
   log(message, options = {}, defaults = this.__config.defaults) {
@@ -208,6 +252,8 @@ export class Notification {
    *
    * @return {function(message, options)}
    *
+   * @readonly
+   *
    */
   @readonly()
   spawn(addnDefaults) {
@@ -224,6 +270,7 @@ export class Notification {
    *
    * @return {Promise}
    *
+   * @readonly
    */
   @readonly()
   remove() {
@@ -232,13 +279,3 @@ export class Notification {
     });
   }
 }
-
-function configure(aurelia, config) {
-  return config(aurelia.container.get(Config));
-}
-
-export {
-  Config,
-  Notification,
-  configure
-};

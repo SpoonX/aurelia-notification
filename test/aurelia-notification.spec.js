@@ -1,4 +1,6 @@
-import {configure, Config, Notification} from '../src/aurelia-notification';
+import {configure} from '../src/aurelia-notification';
+import {Config} from '../src/config';
+import {Notification} from '../src/notification';
 import {Container} from 'aurelia-dependency-injection';
 
 describe('aurelia-notification', function() {
