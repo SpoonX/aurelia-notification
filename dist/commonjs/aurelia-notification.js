@@ -56,10 +56,6 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
 
 
 
-function configure(aurelia, config) {
-  return config(aurelia.container.get(Config));
-}
-
 var Config = exports.Config = function () {
   function Config() {
     
@@ -87,6 +83,10 @@ var Config = exports.Config = function () {
 
   return Config;
 }();
+
+function configure(aurelia, config) {
+  return config(aurelia.container.get(Config));
+}
 
 var readonly = function readonly() {
   return function (key, target, descriptor) {

@@ -50,10 +50,6 @@ define(['exports', 'extend', 'humane-js', 'aurelia-dependency-injection', 'aurel
 
   
 
-  function configure(aurelia, config) {
-    return config(aurelia.container.get(Config));
-  }
-
   var Config = exports.Config = function () {
     function Config() {
       
@@ -81,6 +77,10 @@ define(['exports', 'extend', 'humane-js', 'aurelia-dependency-injection', 'aurel
 
     return Config;
   }();
+
+  function configure(aurelia, config) {
+    return config(aurelia.container.get(Config));
+  }
 
   var readonly = function readonly() {
     return function (key, target, descriptor) {

@@ -37,10 +37,6 @@ import { inject } from 'aurelia-dependency-injection';
 import { I18N } from 'aurelia-i18n';
 import { DOM } from 'aurelia-pal';
 
-export function configure(aurelia, config) {
-  return config(aurelia.container.get(Config));
-}
-
 export var Config = function () {
   function Config() {
     
@@ -68,6 +64,10 @@ export var Config = function () {
 
   return Config;
 }();
+
+export function configure(aurelia, config) {
+  return config(aurelia.container.get(Config));
+}
 
 var readonly = function readonly() {
   return function (key, target, descriptor) {

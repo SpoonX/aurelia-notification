@@ -49,12 +49,6 @@ System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia
       DOM = _aureliaPal.DOM;
     }],
     execute: function () {
-      function configure(aurelia, config) {
-        return config(aurelia.container.get(Config));
-      }
-
-      _export('configure', configure);
-
       _export('Config', Config = function () {
         function Config() {
           
@@ -84,6 +78,12 @@ System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia
       }());
 
       _export('Config', Config);
+
+      function configure(aurelia, config) {
+        return config(aurelia.container.get(Config));
+      }
+
+      _export('configure', configure);
 
       readonly = function readonly() {
         return function (key, target, descriptor) {

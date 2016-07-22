@@ -4,10 +4,6 @@ import {inject} from 'aurelia-dependency-injection';
 import {I18N} from 'aurelia-i18n';
 import {DOM} from 'aurelia-pal';
 
-export function configure(aurelia, config) {
-  return config(aurelia.container.get(Config));
-}
-
 /**
  * The Config class. Configures the notifications
  */
@@ -54,11 +50,13 @@ export class Config {
   }
 }
 
+export function configure(aurelia, config) {
+  return config(aurelia.container.get(Config));
+}
+
 // from https://github.com/AvraamMavridis/javascript-decorators/
-const readonly = function ()
-{
-  return function ( key, target, descriptor )
-  {
+const readonly = function() {
+  return function( key, target, descriptor ) {
     descriptor.writable = false;
     return descriptor;
   };

@@ -2,8 +2,6 @@ import {inject} from 'aurelia-dependency-injection';
 import {I18N} from 'aurelia-i18n';
 import {DOM} from 'aurelia-pal';
 
-export declare function configure(aurelia?: any, config?: any): any;
-
 /**
  * The Config class. Configures the notifications
  */
@@ -39,6 +37,7 @@ export declare class Config {
      */
   configure(incomming?: any, base?: any): any;
 }
+export declare function configure(aurelia?: any, config?: any): any;
 
 /**
  * The Notification class. Notify using humane-js with your custom names and defaults

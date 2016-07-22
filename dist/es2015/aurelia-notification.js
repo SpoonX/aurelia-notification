@@ -35,10 +35,6 @@ import { inject } from 'aurelia-dependency-injection';
 import { I18N } from 'aurelia-i18n';
 import { DOM } from 'aurelia-pal';
 
-export function configure(aurelia, config) {
-  return config(aurelia.container.get(Config));
-}
-
 export let Config = class Config {
   constructor() {
     this.translate = true;
@@ -59,6 +55,10 @@ export let Config = class Config {
     return this;
   }
 };
+
+export function configure(aurelia, config) {
+  return config(aurelia.container.get(Config));
+}
 
 const readonly = function () {
   return function (key, target, descriptor) {
