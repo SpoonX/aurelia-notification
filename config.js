@@ -45,7 +45,7 @@ System.config({
     },
     "npm:aurelia-bootstrapper@1.0.0-rc.1.0.1": {
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0-rc.1.0.0",
-      "aurelia-framework": "npm:aurelia-framework@1.0.0-rc.1.0.2",
+      "aurelia-framework": "npm:aurelia-framework@1.0.0-rc.1.0.6",
       "aurelia-history": "npm:aurelia-history@1.0.0-rc.1.0.0",
       "aurelia-history-browser": "npm:aurelia-history-browser@1.0.0-rc.1.0.0",
       "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0-rc.1.0.0",
@@ -66,7 +66,7 @@ System.config({
     "npm:aurelia-event-aggregator@1.0.0-rc.1.0.0": {
       "aurelia-logging": "npm:aurelia-logging@1.0.0-rc.1.0.1"
     },
-    "npm:aurelia-framework@1.0.0-rc.1.0.2": {
+    "npm:aurelia-framework@1.0.0-rc.1.0.6": {
       "aurelia-binding": "npm:aurelia-binding@1.0.0-rc.1.0.3",
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-rc.1.0.1",
       "aurelia-loader": "npm:aurelia-loader@1.0.0-rc.1.0.0",
@@ -90,7 +90,7 @@ System.config({
       "aurelia-pal": "npm:aurelia-pal@1.0.0-rc.1.0.0",
       "aurelia-templating": "npm:aurelia-templating@1.0.0-rc.1.0.1",
       "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-rc.1.0.1",
-      "i18next": "npm:i18next@3.3.1",
+      "i18next": "npm:i18next@3.4.1",
       "intl": "npm:intl@1.2.4"
     },
     "npm:aurelia-loader-default@1.0.0-rc.1.0.0": {
@@ -171,7 +171,7 @@ System.config({
       "isarray": "npm:isarray@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:i18next@3.3.1": {
+    "npm:i18next@3.4.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:inherits@2.0.1": {
