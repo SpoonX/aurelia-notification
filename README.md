@@ -20,18 +20,24 @@ This library can be used in the **browser** only.
 
 We've simplified installation and usage! This plugin should now be installed using `jspm i aurelia-notification` or (for webpack) `npm i aurelia-notification`. With this change `aurelia-notification` will use an npm installation of [humane-js](https://www.npmjs.com/package/humane-js). Make sure you update all references to `spoonx/aurelia-notification` and, if applicable to `wavded/humane-js`, remove the `spoonx/` resp. `wavded/` prefixes (don't forget your config.js, package.json, imports and bundles).
 
+## Documentation
+
+You can find the full api documentation in [/doc/notification.md](./doc/notification.md).
+
+The [changelog](doc/changelog.md) provides you with information about important changes.
+
 ## Installation
 
 ### Aureli-Cli
 
 Run `npm i aurelia-notification --save` from your project root.
 
-Aurelia-notification makes use of `extends` and `humane-js`. So, add following to the `build/bundles/dependencies` section of `aurelia-project/aurelia.json`.
+Aurelia-notification makes use of `extend` and `humane-js`. So, add following to the `build/bundles/dependencies` section of `aurelia-project/aurelia.json`.
 
 ```js
 "dependencies": [
   // ...
-  'extends',
+  'extend',
   'humane-js',
   'aurelia-notification',
   // ...
@@ -134,7 +140,3 @@ export class SomeViewModel {
   }
 }
 ```
-
-## API
-
-You can find the full api documentation in [/doc/notification.md](./doc/notification.md).
