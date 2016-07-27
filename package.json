@@ -50,6 +50,7 @@
       "aurelia-bootstrapper": "^1.0.0-rc.1.0.0",
       "aurelia-pal-browser": "^1.0.0-rc.1.0.0",
       "aurelia-polyfills": "^1.0.0-rc.1.0.0",
+      "aurelia-testing": "^1.0.0-beta.1.0.3",
       "i18next-xhr-backend": "^0.6.0"
     }
   },
