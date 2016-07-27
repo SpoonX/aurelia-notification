@@ -13,6 +13,7 @@ System.config({
     "aurelia-pal": "npm:aurelia-pal@1.0.0-rc.1.0.0",
     "aurelia-pal-browser": "npm:aurelia-pal-browser@1.0.0-rc.1.0.1",
     "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0-rc.1.0.0",
+    "aurelia-testing": "npm:aurelia-testing@1.0.0-beta.1.0.3",
     "extend": "npm:extend@3.0.0",
     "humane-js": "npm:humane-js@3.2.2",
     "i18next-xhr-backend": "npm:i18next-xhr-backend@0.6.0",
@@ -162,6 +163,13 @@ System.config({
       "aurelia-pal": "npm:aurelia-pal@1.0.0-rc.1.0.0",
       "aurelia-path": "npm:aurelia-path@1.0.0-rc.1.0.0",
       "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-rc.1.0.0"
+    },
+    "npm:aurelia-testing@1.0.0-beta.1.0.3": {
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-rc.1.0.1",
+      "aurelia-framework": "npm:aurelia-framework@1.0.0-rc.1.0.13",
+      "aurelia-logging": "npm:aurelia-logging@1.0.0-rc.1.0.1",
+      "aurelia-pal": "npm:aurelia-pal@1.0.0-rc.1.0.0",
+      "aurelia-templating": "npm:aurelia-templating@1.0.0-rc.1.0.3"
     },
     "npm:buffer@3.6.0": {
       "base64-js": "npm:base64-js@0.0.8",
