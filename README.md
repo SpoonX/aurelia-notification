@@ -32,14 +32,14 @@ The [changelog](doc/changelog.md) provides you with information about important 
 
 Run `npm i aurelia-notification --save` from your project root.
 
-Aurelia-notification makes use of `extend` and `humane-js`. So, add following to the `build/bundles/dependencies` section of `aurelia-project/aurelia.json`.
+Aurelia-notification needs to have [aurelia-i18n](https://github.com/aurelia/i18n) installed and configured. It also makes use of `extend` and `humane-js`. So, add following to the `build/bundles/dependencies` section of `aurelia-project/aurelia.json`.
 
 ```js
 "dependencies": [
   // ...
-  'extend',
-  'humane-js',
-  'aurelia-notification',
+  "extend",
+  "humane-js",
+  "aurelia-notification",
   // ...
 ],
 ```
@@ -47,6 +47,8 @@ Aurelia-notification makes use of `extend` and `humane-js`. So, add following to
 ### Jspm
 
 Run `jspm i aurelia-notification`
+
+Aurelia-notification needs to have [aurelia-i18n](https://github.com/aurelia/i18n) installed and configured.
 
 Add `aurelia-notification` to the `bundles.dist.aurelia.includes` section of `build/bundles.js`.
 
@@ -70,6 +72,8 @@ jspm resolve --only npm:aurelia-dependency-injection@1.0.0-beta.2.1.0
 ### Webpack
 
 Run `npm i aurelia-notification --save` from your project root.
+
+Aurelia-notification needs to have [aurelia-i18n](https://github.com/aurelia/i18n) installed and configured.
 
 Add `'aurelia-notification'` in the `coreBundles.aurelia section` of your `webpack.config.js`.
 
