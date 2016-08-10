@@ -28,29 +28,41 @@ The [changelog](doc/changelog.md) provides you with information about important 
 
 ## Installation
 
+Aurelia-notification needs to have [aurelia-i18n](https://github.com/aurelia/i18n) installed and configured.
+
 ### Aureli-Cli
 
 Run `npm i aurelia-notification --save` from your project root.
 
-Aurelia-notification needs to have [aurelia-i18n](https://github.com/aurelia/i18n) installed and configured. It also makes use of `extend` and `humane-js`. So, add following to the `build/bundles/dependencies` section of `aurelia-project/aurelia.json`.
+Aurelia-notification makes use of `extend` and `humane-js`. So, add following to the `build/bundles/dependencies` section of `aurelia-project/aurelia.json`.
 
 ```js
 "dependencies": [
   // ...
   "extend",
-  "humane-js",
   "aurelia-notification",
+  {
+      "name": "humane-js",
+      "path": "../node_modules/humane-js",
+      "main": "humane",
+      "resources": [
+        "themes/libnotify.css"
+      ]
+    },
   // ...
 ],
 ```
 
 ### Jspm
 
-Run `jspm i aurelia-notification`
+Run `jspm i aurelia-notification` from your project root.
 
-Aurelia-notification needs to have [aurelia-i18n](https://github.com/aurelia/i18n) installed and configured.
+And add following to the `bundles.dist.aurelia.includes` section of `build/bundles.js`:
 
-Add `aurelia-notification` to the `bundles.dist.aurelia.includes` section of `build/bundles.js`.
+```js
+ "aurelia-notification",
+ "humane-js/themes/jackedup.css!text",  // your selected humane-js theme
+```
 
 If the installation results in having forks, try resolving them by running:
 
@@ -59,39 +71,15 @@ jspm inspect --forks
 jspm resolve --only registry:package-name@version
 ```
 
-E.g.
-
-```sh
-jspm inspect --forks
->     Installed Forks
->         npm:aurelia-dependency-injection 1.0.0-beta.1.2.3 1.0.0-beta.2.1.0
-
-jspm resolve --only npm:aurelia-dependency-injection@1.0.0-beta.2.1.0
-```
-
 ### Webpack
 
 Run `npm i aurelia-notification --save` from your project root.
-
-Aurelia-notification needs to have [aurelia-i18n](https://github.com/aurelia/i18n) installed and configured.
 
 Add `'aurelia-notification'` in the `coreBundles.aurelia section` of your `webpack.config.js`.
 
 ### Typescript
 
-Npm-based installations pick up the typings automatically. For Jspm-based installations, add to your `typings.json`:
-
-```js
-"aurelia-notification": "github:spoonx/aurelia-notification",
-```
-
-and run `typings i`
-
-or run
-
-```sh
-typings i github:spoonx/aurelia-notification
-```
+Npm-based installations pick up the typings automatically. For Jspm-based installations, run `typings i github:spoonx/aurelia-notification` or add `"aurelia-notification": "github:spoonx/aurelia-notification",` to your `typings.json` and run `typings i`.
 
 ## Usage
 
@@ -105,7 +93,7 @@ This module comes with an optional configure method to change the some defaults.
 
 Make sure your project uses a `main.js` file to initialize aurelia. In your configure function, add the following:
 
-```javascript
+```js
 aurelia.use
   /* Your other plugins and init code */
   .plugin('aurelia-notification', config => {

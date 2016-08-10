@@ -16,6 +16,9 @@
   "authors": [
     "RWOverdijk <wesley@spoonx.nl> (http://spoonx.nl/)"
   ],
+   "contributors": [
+    "Dirk Eisinger <doktordirk@outlook.de>"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/SpoonX/aurelia-notification"
