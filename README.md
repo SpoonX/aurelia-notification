@@ -42,13 +42,13 @@ Aurelia-notification makes use of `extend` and `humane-js`. So, add following to
   "extend",
   "aurelia-notification",
   {
-      "name": "humane-js",
-      "path": "../node_modules/humane-js",
-      "main": "humane",
-      "resources": [
-        "themes/libnotify.css"
-      ]
-    },
+    "name": "humane-js",
+    "path": "../node_modules/humane-js",
+    "main": "humane",
+    "resources": [
+      "themes/libnotify.css"
+    ]
+  },
   // ...
 ],
 ```
