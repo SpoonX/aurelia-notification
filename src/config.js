@@ -21,10 +21,10 @@ export class Config {
    * @param {Object}
    */
   notifications = {
-    note: {},
+    note   : {},
     success: {addnCls: 'success'},
-    error: {addnCls: 'error'},
-    info: {addnCls: 'info'}
+    error  : {addnCls: 'error'},
+    info   : {addnCls: 'info'}
   }
 
   /**

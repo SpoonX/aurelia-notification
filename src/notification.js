@@ -5,13 +5,21 @@ import {I18N} from 'aurelia-i18n';
 import {DOM} from 'aurelia-pal';
 import extend from 'extend';
 
-// from https://github.com/AvraamMavridis/javascript-decorators/
-const readonly = function() {
-  return function( key, target, descriptor ) {
+/**
+ * Readonly decorator
+ *
+ * @returns {function}
+ * @decoraor
+ *
+ * @see https://github.com/AvraamMavridis/javascript-decorators/
+ */
+function readonly() {
+  return function(key, target, descriptor) {
     descriptor.writable = false;
+
     return descriptor;
   };
-};
+}
 
 /**
  * The Notification class. Notify using humane-js with your custom names and defaults
@@ -26,10 +34,8 @@ export class Notification {
      * @param {{}}               [options] for this particular notification.
      * @param {{}}               [defaults] for this type of notification.
      *
-     * @return {Promise}
-     *
      */
-  note(message, options = {}, defaults = this.__config.defaults) {}
+  note(message, options = {}, defaults = this.__config.defaults) {} // eslint-disable-line  no-empty-function
 
   /**
      * Notify 'success' (translated if applicable) using humane.log.
@@ -38,10 +44,8 @@ export class Notification {
      * @param {{}}               [options] for this particular notification.
      * @param {{}}               [defaults] for this type of notification.
      *
-     * @return {Promise}
-     *
      */
-  success(message, options = {}, defaults = this.__config.defaults) {}
+  success(message, options = {}, defaults = this.__config.defaults) {} // eslint-disable-line  no-empty-function
 
   /**
      * Notify 'error' (translated if applicable) using humane.log.
@@ -50,10 +54,8 @@ export class Notification {
      * @param {{}}               [options] for this particular notification.
      * @param {{}}               [defaults] for this type of notification.
      *
-     * @return {Promise}
-     *
      */
-  error(message, options = {}, defaults = this.__config.defaults) {}
+  error(message, options = {}, defaults = this.__config.defaults) {} // eslint-disable-line  no-empty-function
 
   /**
      * Notify 'info' (translated if applicable) using humane.log.
@@ -62,18 +64,15 @@ export class Notification {
      * @param {{}}               [options] for this particular notification.
      * @param {{}}               [defaults] for this type of notification.
      *
-     * @return {Promise}
-     *
      */
-  info(message, options = {}, defaults = this.__config.defaults) {}
-
+  info(message, options = {}, defaults = this.__config.defaults) {} // eslint-disable-line  no-empty-function
 
   /**
    * Creates a Notification instance
    *
-   * @param  {[Config]} config
-   * @param  {[Humane]} humane
-   * @param  {[I18N]}   i18N
+   * @param {Config} config The condig instance
+   * @param {Humane} humane The humae instance
+   * @param {I18N}   i18n   The i18n instance
    *
    * @constructor
    */
@@ -88,7 +87,9 @@ export class Notification {
 
     // add configured default methods
     for (let key in config.notifications) {
-      this[key] = this.spawn(config.notifications[key]);
+      if (config.notifications.hasOwnProperty(key)) {
+        this[key] = this.spawn(config.notifications[key]);
+      }
     }
 
     // ensure humane.container is document.body after 'aurelia-composed'
@@ -97,6 +98,7 @@ export class Notification {
       this.setContainer();
       DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
     };
+
     DOM.addEventListener('aurelia-composed', aureliaComposedListener);
   }
 
@@ -114,8 +116,8 @@ export class Notification {
   @readonly()
   define(property, value, writable) {
     Object.defineProperty(this, property, {
-      value: value,
-      writable: !!writable,
+      value     : value,
+      writable  : !!writable,
       enumerable: false
     });
 
@@ -135,21 +137,23 @@ export class Notification {
   setContainer(container) {
     DOM.appendNode(this.__humane.el, container); // if container null or undefined,  appends to document.body
     this.__humane.container = this.__humane.el.parentNode;
+
     return this.__humane.container;
   }
 
   /**
    * Set the base css class for the notifications
    *
-   * @param {[string]}  [base class] for the notifications (default=__config.defaults.baseCls)
+   * @param {[string]}  [baseCls] the base class for the notifications (default=__config.defaults.baseCls)
    *
-   * @return {string}  [base class]
+   * @return {string}  the base class
    *
    * @readonly
    */
   @readonly()
   setBaseCls(baseCls = this.__config.defaults.baseCls) {
     this.__humane.baseCls = baseCls ? baseCls : this.__humane.baseCls;
+
     return this.__humane.baseCls;
   }
 
@@ -159,13 +163,14 @@ export class Notification {
    * @param {[{}]}  [options] for a particular notification.
    * @param {[{}]}  [defaults] for a type of notifications.
    *
-   * @return {Boolean}
+   * @return {Boolean} status
    *
    * @readonly
    */
   @readonly()
   translate(options = {}, defaults = {}) {
     let joined = extend({}, this.__config, defaults, options);
+
     return joined.translate;
   }
 
@@ -176,7 +181,7 @@ export class Notification {
    * @param {{}}               [options] for this particular notification.
    * @param {{}}               [defaults] for this type of notification.
    *
-   * @return {Promise}
+   * @return {Promise}         Resolves when closed
    *
    * @readonly
    */
@@ -184,7 +189,7 @@ export class Notification {
   log(message, options = {}, defaults = this.__config.defaults) {
     if (this.translate(options, defaults)) {
       if (message instanceof Array) {
-        message = message.map(item=>this.i18n.tr(item));
+        message = message.map(item => this.i18n.tr(item));
       } else {
         message = this.__i18n.tr(message);
       }
@@ -219,7 +224,7 @@ export class Notification {
   /**
    * Force remove humane log
    *
-   * @return {Promise}
+   * @return {Promise}         Resolves when closed
    *
    * @readonly
    */

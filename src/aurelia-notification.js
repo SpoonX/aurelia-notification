@@ -1,10 +1,19 @@
 import {Config} from './config';
 
-export function configure(aurelia, configOrConfigure) {
-  let config = aurelia.container.get(Config);
+/**
+ * Plugin configure
+ *
+ * @export
+ * @param {any} frameworkConfig
+ * @param {any} configOrConfigure
+ */
+export function configure(frameworkConfig, configOrConfigure) {
+  let config = frameworkConfig.container.get(Config);
 
   if (typeof configOrConfigure === 'function') {
-    return configOrConfigure(config);
+    configOrConfigure(config);
+
+    return;
   }
 
   config.configure(configOrConfigure);
