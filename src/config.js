@@ -11,36 +11,36 @@ export class Config {
   translate = true
 
   /**
-   * Defaults for all notifictaions
-   * @param {Object}
+   * Defaults for all notifications
+   * @param {{}}
    */
   defaults = {}
 
   /**
    * Notification names and their specific defaults
-   * @param {Object}
+   * @param {{}}
    */
   notifications = {
-    note: {},
+    note   : {},
     success: {addnCls: 'success'},
-    error: {addnCls: 'error'},
-    info: {addnCls: 'info'}
+    error  : {addnCls: 'error'},
+    info   : {addnCls: 'info'}
   }
 
   /**
-   * Configuration fanction for notifications
+   * Configuration function for notifications
    *
-   * @param  {[Object]} [incomming] The configuration object
-   * @param  {[Config]} [base]      The optional base config to use
+   * @param  {[{}]}     [incoming] The configuration object
+   * @param  {[Config]} [base]     The optional base config to use
    *
-   * @return {Config}           itself
+   * @return {Config} itself
    *
    * @chainable
    */
-  configure(incomming = {}, base = this) {
-    this.translate     = 'translate' in incomming ? incomming.translate : base.translate;
-    this.defaults      = extend({}, base.defaults, incomming.defaults);
-    this.notifications = extend({}, base.notifications, incomming.notifications);
+  configure(incoming = {}, base = this) {
+    this.translate     = 'translate' in incoming ? incoming.translate : base.translate;
+    this.defaults      = extend({}, base.defaults, incoming.defaults);
+    this.notifications = extend({}, base.notifications, incoming.notifications);
 
     return this;
   }

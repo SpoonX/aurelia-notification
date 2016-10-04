@@ -1,6 +1,5 @@
 {
-  "extends": "./node_modules/aurelia-tools/.eslintrc.json",
+  "extends": "./node_modules/spoonx-tools/.eslintrc.json",
   "rules": {
-    "consistent-return": 0
-  }
+	}
 }
