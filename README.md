@@ -16,10 +16,6 @@ This library is used directly by applications only.
 
 This library can be used in the **browser** only.
 
-## Important note
-
-We've simplified installation and usage! This plugin should now be installed using `jspm i aurelia-notification` or (for webpack) `npm i aurelia-notification`. With this change `aurelia-notification` will use an npm installation of [humane-js](https://www.npmjs.com/package/humane-js). Make sure you update all references to `spoonx/aurelia-notification` and, if applicable to `wavded/humane-js`, remove the `spoonx/` resp. `wavded/` prefixes (don't forget your config.js, package.json, imports and bundles).
-
 ## Documentation
 
 You can find the full api documentation in [/doc/notification.md](./doc/notification.md).
@@ -132,3 +128,8 @@ export class SomeViewModel {
   }
 }
 ```
+
+## Note
+
+Some month ago, we've simplified installation and usage! This plugin should now be installed using `jspm i aurelia-notification` or (for webpack) `npm i aurelia-notification`. With this change `aurelia-notification` will use an npm installation of [humane-js](https://www.npmjs.com/package/humane-js). Make sure you update all references to `spoonx/aurelia-notification` and, if applicable to `wavded/humane-js`, remove the `spoonx/` resp. `wavded/` prefixes (don't forget your config.js, package.json, imports and bundles).
+

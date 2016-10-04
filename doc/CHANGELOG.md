@@ -1,3 +1,13 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/SpoonX/aurelia-notification/compare/1.0.0-rc5...v1.0.0) (2016-10-04)
+
+
+### Features
+
+* **project:** allow configuration with an object ([c2890a2](https://github.com/SpoonX/aurelia-notification/commit/c2890a2))
+
+
+
 <a name="1.0.0-rc5"></a>
 ## [1.0.0-rc5](https://github.com/SpoonX/aurelia-notification/compare/1.0.0-rc1...v1.0.0-rc5) (2016-07-22)
 
