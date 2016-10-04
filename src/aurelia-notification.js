@@ -4,8 +4,8 @@ import {Config} from './config';
  * Plugin configure
  *
  * @export
- * @param {any} frameworkConfig
- * @param {any} configOrConfigure
+ * @param {FrameworkConfiguration} frameworkConfig
+ * @param {{}|function}            configOrConfigure
  */
 export function configure(frameworkConfig, configOrConfigure) {
   let config = frameworkConfig.container.get(Config);

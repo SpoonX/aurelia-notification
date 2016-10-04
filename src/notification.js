@@ -9,7 +9,7 @@ import extend from 'extend';
  * Readonly decorator
  *
  * @returns {function}
- * @decoraor
+ * @decorator
  *
  * @see https://github.com/AvraamMavridis/javascript-decorators/
  */
@@ -30,7 +30,7 @@ export class Notification {
   /**
      * Notify 'note' (translated if applicable) using humane.log.
      *
-     * @param {String|String[]}  message|multi-line message.
+     * @param {string|string[]}  message|multi-line message.
      * @param {{}}               [options] for this particular notification.
      * @param {{}}               [defaults] for this type of notification.
      *
@@ -40,7 +40,7 @@ export class Notification {
   /**
      * Notify 'success' (translated if applicable) using humane.log.
      *
-     * @param {String|String[]}  message|multi-line message.
+     * @param {string|string[]}  message|multi-line message.
      * @param {{}}               [options] for this particular notification.
      * @param {{}}               [defaults] for this type of notification.
      *
@@ -50,7 +50,7 @@ export class Notification {
   /**
      * Notify 'error' (translated if applicable) using humane.log.
      *
-     * @param {String|String[]}  message|multi-line message.
+     * @param {string|string[]}  message|multi-line message.
      * @param {{}}               [options] for this particular notification.
      * @param {{}}               [defaults] for this type of notification.
      *
@@ -60,7 +60,7 @@ export class Notification {
   /**
      * Notify 'info' (translated if applicable) using humane.log.
      *
-     * @param {String|String[]}  message|multi-line message.
+     * @param {string|string[]}  message|multi-line message.
      * @param {{}}               [options] for this particular notification.
      * @param {{}}               [defaults] for this type of notification.
      *
@@ -70,9 +70,9 @@ export class Notification {
   /**
    * Creates a Notification instance
    *
-   * @param {Config} config The condig instance
-   * @param {Humane} humane The humae instance
-   * @param {I18N}   i18n   The i18n instance
+   * @param {Config} config
+   * @param {Humane} humane
+   * @param {I18N}   i18n
    *
    * @constructor
    */
@@ -106,10 +106,10 @@ export class Notification {
    * Define a non-enumerable property on the notification.
    *
    * @param {string}  property
-   * @param {*}       value
+   * @param {any}       value
    * @param {boolean} [writable]
    *
-   * @return {Notification}
+   * @return {Notification} itself
    *
    * @readonly
    */
@@ -127,9 +127,7 @@ export class Notification {
   /**
    * Set the container for the notifications
    *
-   * @param {[DOM.node]}  [container] for the notifications
-   *
-   * @return {DOM.node}  [container]
+   * @param {[DOM.node]} [container] for the notifications
    *
    * @readonly
    */
@@ -137,31 +135,25 @@ export class Notification {
   setContainer(container) {
     DOM.appendNode(this.__humane.el, container); // if container null or undefined,  appends to document.body
     this.__humane.container = this.__humane.el.parentNode;
-
-    return this.__humane.container;
   }
 
   /**
    * Set the base css class for the notifications
    *
-   * @param {[string]}  [baseCls] the base class for the notifications (default=__config.defaults.baseCls)
-   *
-   * @return {string}  the base class
+   * @param {[string]} [baseCls] the base class for the notifications (default=__config.defaults.baseCls)
    *
    * @readonly
    */
   @readonly()
   setBaseCls(baseCls = this.__config.defaults.baseCls) {
     this.__humane.baseCls = baseCls ? baseCls : this.__humane.baseCls;
-
-    return this.__humane.baseCls;
   }
 
   /**
    * Check if translate is on with given options
    *
-   * @param {[{}]}  [options] for a particular notification.
-   * @param {[{}]}  [defaults] for a type of notifications.
+   * @param {[{}]} [options] for a particular notification.
+   * @param {[{}]} [defaults] for a type of notifications.
    *
    * @return {Boolean} status
    *
@@ -175,13 +167,13 @@ export class Notification {
   }
 
   /**
-   * Notify (translated if applicable) using humane.log.
+   * Notify (translated if applicable) using humane.log. Resolves when closed.
    *
-   * @param {String|String[]}  message|multi-line message.
-   * @param {{}}               [options] for this particular notification.
-   * @param {{}}               [defaults] for this type of notification.
+   * @param {string|string[]} message|multi-line message.
+   * @param {{}}              [options] for this particular notification.
+   * @param {{}}              [defaults] for this type of notification.
    *
-   * @return {Promise}         Resolves when closed
+   * @return {Promise}
    *
    * @readonly
    */
@@ -203,7 +195,7 @@ export class Notification {
   /**
    * Set a custom shortcut for .log with defaults based on global defaults
    *
-   * @param {String|{}}  [defaults] for this shortcut.
+   * @param {string|{}}  [defaults] for this shortcut.
    *                     A string evaluates to {'addnCls': defaults}
    *
    * @return {function(message, options)}
@@ -222,9 +214,9 @@ export class Notification {
   }
 
   /**
-   * Force remove humane log
+   * Force remove humane log. Resolves when closed.
    *
-   * @return {Promise}         Resolves when closed
+   * @return {Promise}
    *
    * @readonly
    */
