@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 var _aureliaNotification = require('./aurelia-notification');
 
 Object.keys(_aureliaNotification).forEach(function (key) {
-  if (key === "default") return;
+  if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
