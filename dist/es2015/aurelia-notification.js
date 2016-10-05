@@ -47,42 +47,49 @@ export let Config = class Config {
     };
   }
 
-  configure(incomming = {}, base = this) {
-    this.translate = 'translate' in incomming ? incomming.translate : base.translate;
-    this.defaults = extend({}, base.defaults, incomming.defaults);
-    this.notifications = extend({}, base.notifications, incomming.notifications);
+  configure(incoming = {}, base = this) {
+    this.translate = 'translate' in incoming ? incoming.translate : base.translate;
+    this.defaults = extend({}, base.defaults, incoming.defaults);
+    this.notifications = extend({}, base.notifications, incoming.notifications);
 
     return this;
   }
 };
 
-export function configure(aurelia, config) {
-  return config(aurelia.container.get(Config));
+export function configure(frameworkConfig, configOrConfigure) {
+  let config = frameworkConfig.container.get(Config);
+
+  if (typeof configOrConfigure === 'function') {
+    configOrConfigure(config);
+
+    return;
+  }
+
+  config.configure(configOrConfigure);
 }
 
-const readonly = function () {
+function readonly() {
   return function (key, target, descriptor) {
     descriptor.writable = false;
+
     return descriptor;
   };
-};
+}
 
 export let Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly(), _dec3 = readonly(), _dec4 = readonly(), _dec5 = readonly(), _dec6 = readonly(), _dec7 = readonly(), _dec8 = readonly(), _dec(_class2 = (_class3 = class Notification {
   note(message, options = {}, defaults = this.__config.defaults) {}
-
   success(message, options = {}, defaults = this.__config.defaults) {}
-
   error(message, options = {}, defaults = this.__config.defaults) {}
-
   info(message, options = {}, defaults = this.__config.defaults) {}
-
   constructor(config, humane, i18n) {
     this.define('__config', config).define('__humane', humane).define('__i18n', i18n);
 
     this.setBaseCls();
 
     for (let key in config.notifications) {
-      this[key] = this.spawn(config.notifications[key]);
+      if (config.notifications.hasOwnProperty(key)) {
+        this[key] = this.spawn(config.notifications[key]);
+      }
     }
 
     this.setContainer();
@@ -90,6 +97,7 @@ export let Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly
       this.setContainer();
       DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
     };
+
     DOM.addEventListener('aurelia-composed', aureliaComposedListener);
   }
 
@@ -106,16 +114,15 @@ export let Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly
   setContainer(container) {
     DOM.appendNode(this.__humane.el, container);
     this.__humane.container = this.__humane.el.parentNode;
-    return this.__humane.container;
   }
 
   setBaseCls(baseCls = this.__config.defaults.baseCls) {
     this.__humane.baseCls = baseCls ? baseCls : this.__humane.baseCls;
-    return this.__humane.baseCls;
   }
 
   translate(options = {}, defaults = {}) {
     let joined = extend({}, this.__config, defaults, options);
+
     return joined.translate;
   }
 

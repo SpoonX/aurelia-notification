@@ -1,6 +1,6 @@
 {
   "name": "aurelia-notification",
-  "version": "1.0.0-rc5",
+  "version": "1.0.0",
   "description": "A simple notification service utilizing humane.js.",
   "keywords": [
     "aurelia",
@@ -35,24 +35,24 @@
       "dist": "dist/amd"
     },
     "dependencies": {
-      "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
-      "aurelia-i18n": "^1.0.0-rc.1.0.0",
-      "aurelia-pal": "^1.0.0-rc.1.0.0",
+      "aurelia-dependency-injection": "^1.0.0",
+      "aurelia-i18n": "^1.0.0",
+      "aurelia-pal": "^1.0.0",
       "extend": "^3.0.0",
       "humane-js": "^3.2.0"
     },
     "devDependencies": {
-      "aurelia-bootstrapper": "^1.0.0-rc.1.0.0",
-      "aurelia-pal-browser": "^1.0.0-rc.1.0.0",
-      "aurelia-polyfills": "^1.0.0-rc.1.0.0",
+      "aurelia-bootstrapper": "^1.0.0",
+      "aurelia-pal-browser": "^1.0.0",
+      "aurelia-polyfills": "^1.0.0",
       "aurelia-testing": "^1.0.0-beta.1.0.3",
       "i18next-xhr-backend": "^0.6.0"
     }
   },
   "dependencies": {
-    "aurelia-dependency-injection": "^1.0.0-rc.1.0.0",
-    "aurelia-i18n": "^1.0.0-rc.1.0.0",
-    "aurelia-pal": "^1.0.0-rc.1.0.0",
+    "aurelia-dependency-injection": "^1.0.0",
+    "aurelia-i18n": "^1.0.0",
+    "aurelia-pal": "^1.0.0",
     "extend": "^3.0.0",
     "humane-js": "^3.2.0"
   },
