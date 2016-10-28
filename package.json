@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A simple notification service utilizing humane.js.",
   "keywords": [
+    "spoonx",
     "aurelia",
     "plugin",
     "humane",
@@ -25,16 +26,28 @@
     "url": "https://github.com/SpoonX/aurelia-notification"
   },
   "scripts": {
-    "test": "./node_modules/.bin/gulp test"
+    "test": "gulp test",
+    "build": "gulp build",
+    "preversion": "npm test",
+    "version": "npm run build && gulp prepare-package && git add -A dist doc/CHANGELOG.md bower.json",
+    "postpublish": "git push upstream master && git push upstream --tags"
   },
   "jspm": {
     "registry": "npm",
+    "jspmPackage": true,
     "main": "aurelia-notification",
     "format": "amd",
     "directories": {
       "dist": "dist/amd"
     },
     "dependencies": {
+      "aurelia-dependency-injection": "^1.0.0",
+      "aurelia-i18n": "^1.0.0",
+      "aurelia-pal": "^1.0.0",
+      "extend": "^3.0.0",
+      "humane-js": "^3.2.0"
+    },
+    "peerDependencies": {
       "aurelia-dependency-injection": "^1.0.0",
       "aurelia-i18n": "^1.0.0",
       "aurelia-pal": "^1.0.0",
@@ -57,7 +70,7 @@
     "humane-js": "^3.2.0"
   },
   "devDependencies": {
-    "spoonx-tools": "^0.3.0"
+    "spoonx-tools": "^1.0.0-0"
   },
   "aurelia": {
     "build": {
