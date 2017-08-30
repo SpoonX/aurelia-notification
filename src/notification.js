@@ -181,9 +181,9 @@ export class Notification {
   log(message, options = {}, defaults = this.__config.defaults) {
     if (this.translate(options, defaults)) {
       if (message instanceof Array) {
-        message = message.map(item => this.i18n.tr(item));
+        message = message.map(item => this.i18n.tr(item, options.i18n || {}));
       } else {
-        message = this.__i18n.tr(message);
+        message = this.__i18n.tr(message, options.i18n || {});
       }
     }
 

@@ -85,5 +85,23 @@ describe('Notification', () => {
         }, 50);
       });
     });
+
+    it('Should show translated notification with options and i18n params', function (done) {
+      let container = new Container();
+      let config = container.get(Config).configure();
+      let notification = container.get(Notification);
+      let randomText = Math.random().toString();
+
+      component.create(bootstrap).then(function () {
+        notification.note('originalWithVariable', {addnCls: 'test', timeout: 10, i18n: {variable: randomText}});
+
+        setTimeout(() => {
+          expect(notification.__humane.el.className).toMatch(/test/);
+          expect(notification.__humane.el.innerHTML).toBe(`translated with ${randomText}`);
+          expect(notification.__humane.currentMsg.timeout).toBe(10);
+          done();
+        }, 50);
+      });
+    });
   });
 });

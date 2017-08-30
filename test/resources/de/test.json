@@ -1,1 +1,4 @@
-{"original" : "translated"}
+{
+  "original": "translated",
+  "originalWithVariable": "translated with {{variable}}"
+}
