@@ -66,6 +66,32 @@ describe('Notification', () => {
         done();
       });
     });
+
+    it('Should preserve a custom container element.', function(done) {
+      let container = new Container();
+      let config = container.get(Config).configure();
+      let humane = container.get(Humane);
+      let containerDiv = humane.container = DOM.createElement('div');
+      let notification = container.get(Notification);
+
+      component.create(bootstrap).then( function() {
+        let i18n = container.get(I18N);
+
+        expect(notification.__i18n).toBe(i18n);
+        expect(notification.__config).toBe(config);
+        expect(notification.__humane).toBe(humane);
+        expect(notification.__humane.container).toBe(containerDiv);
+        expect(notification.__humane.baseCls).toBe('humane');
+        expect(notification.__humane.el.outerHTML).toBe('<div style="display: none;"></div>');
+
+        for (let key in config.notifications) {
+          expect(notification[key]).toBeDefined();
+          expect(typeof notification[key]).toBe('function');
+        }
+
+        done();
+      });
+    });
   });
 
   describe('.note()', function() {
