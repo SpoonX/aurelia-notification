@@ -140,13 +140,17 @@ var Notification = exports.Notification = (_dec = (0, _aureliaDependencyInjectio
       }
     }
 
-    this.setContainer();
-    var aureliaComposedListener = function aureliaComposedListener() {
-      _this.setContainer();
-      _aureliaPal.DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
-    };
+    if (!humane.container) {
+      this.setContainer();
+      var aureliaComposedListener = function aureliaComposedListener() {
+        if (!humane.container) {
+          _this.setContainer();
+        }
+        _aureliaPal.DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
+      };
 
-    _aureliaPal.DOM.addEventListener('aurelia-composed', aureliaComposedListener);
+      _aureliaPal.DOM.addEventListener('aurelia-composed', aureliaComposedListener);
+    }
   }
 
   Notification.prototype.define = function define(property, value, writable) {

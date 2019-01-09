@@ -24,17 +24,6 @@ export declare class Config {
      * @param {{}}
      */
   notifications: any;
-  
-  /**
-     * Configuration function for notifications
-     *
-     * @param  {[{}]}     [incoming] The configuration object
-     * @param  {[Config]} [base]     The optional base config to use
-     *
-     * @return {Config} itself
-     *
-     * @chainable
-     */
   configure(incoming?: any, base?: any): any;
 }
 

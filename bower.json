@@ -1,6 +1,6 @@
 {
   "name": "aurelia-notification",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple notification service utilizing humane.js.",
   "keywords": [
     "aurelia",
@@ -16,7 +16,7 @@
   "authors": [
     "RWOverdijk <wesley@spoonx.nl> (http://spoonx.nl/)"
   ],
-   "contributors": [
+  "contributors": [
     "Dirk Eisinger <doktordirk@outlook.de>"
   ],
   "repository": {

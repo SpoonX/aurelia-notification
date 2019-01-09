@@ -158,13 +158,17 @@ export class Notification {
     }
 
     // ensure humane.container is document.body after 'aurelia-composed'
-    this.setContainer();
-    let aureliaComposedListener = () => {
+    if (!humane.container) {
       this.setContainer();
-      DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
-    };
+      let aureliaComposedListener = () => {
+        if (!humane.container) {
+          this.setContainer();
+        }
+        DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
+      };
 
-    DOM.addEventListener('aurelia-composed', aureliaComposedListener);
+      DOM.addEventListener('aurelia-composed', aureliaComposedListener);
+    }
   }
 
   /**

@@ -137,13 +137,17 @@ System.register(['extend', 'humane-js', 'aurelia-dependency-injection', 'aurelia
             }
           }
 
-          this.setContainer();
-          var aureliaComposedListener = function aureliaComposedListener() {
-            _this.setContainer();
-            DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
-          };
+          if (!humane.container) {
+            this.setContainer();
+            var aureliaComposedListener = function aureliaComposedListener() {
+              if (!humane.container) {
+                _this.setContainer();
+              }
+              DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
+            };
 
-          DOM.addEventListener('aurelia-composed', aureliaComposedListener);
+            DOM.addEventListener('aurelia-composed', aureliaComposedListener);
+          }
         }
 
         Notification.prototype.define = function define(property, value, writable) {

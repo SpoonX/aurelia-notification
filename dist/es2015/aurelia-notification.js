@@ -92,13 +92,17 @@ export let Notification = (_dec = inject(Config, Humane, I18N), _dec2 = readonly
       }
     }
 
-    this.setContainer();
-    let aureliaComposedListener = () => {
+    if (!humane.container) {
       this.setContainer();
-      DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
-    };
+      let aureliaComposedListener = () => {
+        if (!humane.container) {
+          this.setContainer();
+        }
+        DOM.removeEventListener('aurelia-composed', aureliaComposedListener);
+      };
 
-    DOM.addEventListener('aurelia-composed', aureliaComposedListener);
+      DOM.addEventListener('aurelia-composed', aureliaComposedListener);
+    }
   }
 
   define(property, value, writable) {
