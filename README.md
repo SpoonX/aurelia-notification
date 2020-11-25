@@ -1,3 +1,11 @@
+# Archived
+
+It was fun while it lasted, but we have to stop maintaining these repositories. We haven't used these projects for quite some time and maintaining them is becoming harder to do.
+
+You deserve better, and for that reason we've decided to archive some repositories, which includes this one.
+
+Feel free to fork and alter the repositories, and go forth making awesome stuff.
+
 # aurelia-notification
 
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=plastic)](https://gitter.im/SpoonX/Dev)
